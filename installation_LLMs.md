@@ -65,6 +65,7 @@ For multiline input, wrap text with `"""`:
 >>> """Hello,
 ... world!
 ... """
+```
 
 Pass in prompt as arguments
 ```
