@@ -33,7 +33,7 @@ Orca 2 is built by Microsoft research, and are a fine-tuned version of Meta's Ll
 A large language model built by the Technology Innovation Institute (TII) for use in summarization, text generation, and chat bots. The biggest Falcon model has 180b parameters.
 
 ## Pull the Models
-A light-weight approach to interacting with Ollama is by using the integrated Docker Desktop command line interface. From the dashboard, you locate the running Ollama instance. Click on the three vertical dots in the right side of the instance row and choose "Open in terminal". More details can be found at [this blog post] (https://www.docker.com/blog/integrated-terminal-for-running-containers-extended-integration-with-containerd-and-more-in-docker-desktop-4-12/)
+A light-weight approach to interacting with Ollama is by using the integrated Docker Desktop command line interface. From the dashboard, you locate the running Ollama instance. Click on the three vertical dots in the right side of the instance row and choose "Open in terminal". More details can be found at [this blog post](https://www.docker.com/blog/integrated-terminal-for-running-containers-extended-integration-with-containerd-and-more-in-docker-desktop-4-12/)
 
 Once you are in the terminal, you can start pulling the models you want to use. For example:
 ```
