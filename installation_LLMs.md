@@ -1,5 +1,5 @@
 # Basic Steps for Running LLMs on Local Machines
-This guide uses some texts from the official Docker Desktop ([docs](https://docs.docker.com/desktop/) and Ollama [docs](https://github.com/jmorganca/ollama/tree/main/docs).
+This guide uses some texts from the official Docker Desktop [docs](https://docs.docker.com/desktop/) and Ollama [docs](https://github.com/jmorganca/ollama/tree/main/docs).
 
 ## Install Docker
 Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment that lets you to build, share, and run containerized applications and microservices. It provides a straightforward GUI (Graphical User Interface) that lets you manage your containers, applications, and images directly from your machine. You can use Docker Desktop either on its own or as a complementary tool to the CLI.
