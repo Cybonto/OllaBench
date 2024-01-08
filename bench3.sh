@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# BENCH _2 - Plan and Solve Prompting
+# BENCH _3 - Tree of Thought Prompting
 # Compare multiple models by asking them with the same questions
 
 # defaults
@@ -25,7 +25,7 @@ if [ -z "${INPUT}" ]; then
     exit 1
 fi
 if [ -z "$OUTPUT" ]; then
-    OUTPUT="bench_2_output.txt"
+    OUTPUT="bench_3_output.txt"
 fi
 if [ -z "$TARGET" ]; then
     # underdevelop
@@ -50,9 +50,11 @@ do
 done < <(tail -n +2 $INPUT)
 
 # Get the list of models
-MODELS=($(ollama list | awk '{print $1}' | tail -n +2 ))
-#MODELS=(Llama Orca)
-
+if [ "$TARGET" == "all"]; then
+  MODELS=($(ollama list | awk '{print $1}' | tail -n +2 ))
+else
+  MODELS="$TARGET" 
+fi
 printf "Scenario||Model||Answer||Total Duration(s)||Load Duration(ms)||Prompt Eval Count(tokens)||Prompt Eval Duration(s)||Prompt Eval Rate(tokens/s)||Eval Count(tokens)||Eval Duration(s)||Eval Rate(tokens/s)||Note1||Note2\n" >> "$OUTPUT"
 
 # Loop through each of the selected models
@@ -61,7 +63,14 @@ for ITEM in "${MODELS[@]}"; do
     echo "Loading model $ITEM"
     ollama run "$ITEM" ""
     ollama run "$ITEM" ""
-    ollama run "$ITEM" "" #attempt to load the same model 3 times just in case big models fail to load
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
+    ollama run "$ITEM" ""
     echo "--------------------------------------------------------------"
     echo "Running the questions through the model $ITEM"
     exec 5>&1
@@ -70,7 +79,7 @@ for ITEM in "${MODELS[@]}"; do
       echo " "
       echo "Model: ${ITEM}"
       echo "Scenario: ${arr_SCENARIO[$i]}"
-      QUESTION="You are ${arr_ROLE[$i]}. ${arr_CONTEXT[$i]} ${arr_QUESTION[$i]} Let's first understand the problem. Describe the main problem in one sentence. In lesss than ${arr_SENTENCE_PREF[$i]} sentences, describe the potential cybersecurity risks and/or threats. In lesss than ${arr_SENTENCE_PREF[$i]} sentences, describe the best cybersecurity practices that might come from ${arr_REFERENCE[$i]} and might be used to solve the problem. Devise a plan to solve the problem in less than ${arr_SENTENCE_MAX[$i]} sentences, and with ${arr_CONSTRAINT[$i]}."
+      QUESTION="You are ${arr_ROLE[$i]}. ${arr_CONTEXT[$i]} ${arr_QUESTION[$i]} Let's first understand the problem. Describe the main problem in one sentence. In lesss than ${arr_SENTENCE_PREF[$i]} sentences, how can the main problem can be broken down into small problems? In lesss than ${arr_SENTENCE_MAX[$i]} sentences, describe the potential cybersecurity risks and/or threats associated with each smaller problems. In one sentence, what is the most important smaller problem to solve? Devise a plan to solve the main problem in less than ${arr_SENTENCE_MAX[$i]} sentences, and with ${arr_CONSTRAINT[$i]}."
       echo "Answer: "
       QUESTION=`sed -e 's/^"//' -e 's/"$//' <<<"$QUESTION"`
       #echo "$QUESTION"

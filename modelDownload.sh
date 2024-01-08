@@ -1,9 +1,0 @@
-ollama pull llama2:13b-chat-fp16
-ollama pull llama2:13b-text-fp16
-ollama pull llama2:70b-text-q6_K
-ollama pull orca2:13b-fp16
-ollama pull mistral:7b-instruct-fp16
-ollama pull mistral:7b-text-fp16
-ollama pull orca2:7b-fp16
-ollama pull llama2:70b-text-q8_0
-ollama pull llama2:70b-text-fp16
