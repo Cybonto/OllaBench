@@ -1,0 +1,71 @@
+From,To,Strength
+Goal,Affect,1
+Moral,Affect,1
+Affect,Attitude,1
+Benefits,Attitude,1
+Commitment,Attitude,1
+Costs,Attitude,1
+Knowledge,Attitude,3
+Motivation,Attitude,1
+Norms,Attitude,1
+Response Efficacy,Attitude,1
+Self-efficacy,Attitude,1
+Subjective norms,Attitude,2
+Subjective norms,Attitude,3
+Threat severity,Attitude,2
+Vulnerability,Attitude,1
+Costs,Belief,1
+Moral,Belief,1
+Knowledge,Benefits,1
+Norms,Benefits,1
+Social,Benefits,1
+Goal,Commitment,1
+Attitude,Control,1
+Affect,Costs,2
+Knowledge,Costs,2
+Norms,Costs,1
+Social,Costs,1
+Attitude,Goal,1
+Control,Goal,1
+Subjective norms,Goal,1
+Knowledge,Group norms,1
+Affect,Intent,1
+Attitude,Intent,6
+Belief,Intent,5
+Benefits,Intent,2
+Commitment,Intent,2
+Control,Intent,2
+Costs,Intent,8
+Goal,Intent,1
+Knowledge,Intent,2
+Moral,Intent,5
+Motivation,Intent,1
+Norms,Intent,2
+Response Efficacy,Intent,1
+Response Efficacy,Intent,5
+Self-efficacy,Intent,9
+Social,Intent,2
+Subjective norms,Intent,3
+Threat severity,Intent,3
+Vulnerability,Intent,2
+Belief,Knowledge,1
+Group norms,Moral,1
+Knowledge,Moral,2
+Control,Motivation,1
+Self-efficacy,Motivation,1
+Threat severity,Motivation,1
+Benefits,Norms,1
+Costs,Norms,1
+Group norms,Norms,1
+Subjective norms,Norms,1
+Threat severity,Response Efficacy,3
+Knowledge,Self-efficacy,2
+Motivation,Self-efficacy,1
+Threat severity,Self-efficacy,3
+Belief,Social,1
+Commitment,Social,1
+Attitude,Subjective norms,1
+Belief,Subjective norms,1
+Group norms,Subjective norms,1
+Knowledge,Threat severity,1
+Knowledge,Vulnerability,1
