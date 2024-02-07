@@ -66,10 +66,15 @@ Finally, you run the OllaGen1.py to generate the dataset.
 Scientific methods were used to ensure grounded and realistic generation of the dataset. 
 
 First, 108 psychology constructs and thousands of related paths based on 20 time-tested psychology theories were packaged as Cybonto—a novel ontology. This work was peer-reviewed and published at [https://xmed.jmir.org/2022/2/e33502/](https://xmed.jmir.org/2022/2/e33502/).
+
+
 ![The Cybonto Cognitive Behavioral Network](https://github.com/Cybonto/OllaBench/assets/83996716/d42124ad-4682-4074-b7e5-b2c0c09721d9)
 
 Then, certain nodes and edges that fit the context of cybersecurity compliance and non-compliance were selected.
+
+
 ![The Cybonto-Gen1 Knowledge Graph](https://github.com/Cybonto/OllaBench/assets/83996716/b5a10ddf-1b97-4f48-8a8e-018bb1368ff0)
+
 
 The edges were double checked by citations of empirical peer-reviewed [evidences](./references). Based on this knowledge graph and specified parameters, cognitive behavioral paths are created. For each cognitve behavioral path, a prompt will be constructed based on a library of manually designed and verified prompt templates. The final prompt will be used with ChatGPT or any of LLM models to generate the Context. The Answer (the correct reference) values are derived from the cogniive behavioral paths and the engineering of the context. Please refer to the generate datasets for specific examples.
 
