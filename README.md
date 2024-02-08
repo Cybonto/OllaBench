@@ -5,7 +5,7 @@ The grand challenge that most CEO's care about is maintaining the right level of
 
 Human factors account for half of the long-lasting challenges in IC as identified by Kianpour et al. [[3]](https://www.mdpi.com/2071-1050/13/24/13677), and Laszka et al. [[4]](http://real.mtak.hu/21924/1/Buttyan4.pdf). Unfortunately, human-centric research within the context of IC is under-explored while research on general IC has unrealistic assumptions about human factors. Fortunately, the dawn of Large Language Models (LLMs) promise a much efficient way to research and develop solutions to problems across domains. In cybersecurity, the Zero-trust principles require the evaluation, validation, and continuous monitoring and LLMs are no exception.
 
-Therefore, OllaGen1 was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors. For immediate evaluation, there are three QA data (sub)sets of "True or False", "Which Cognitive Path", and "Who is who", all of which will be described in further details. For more flexibility, OllaGen1 dataset generator is included and allows for generation of new realistic grounded QA entries, guaranteeing robust LLM evaluation.
+Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors.
 
 
 OllaBench benchmark scripts and leaderboard results will be published later in FEB. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
