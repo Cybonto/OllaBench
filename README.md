@@ -8,4 +8,4 @@ Human factors account for half of the long-lasting challenges in IC as identifie
 Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors.
 
 
-OllaBench benchmark scripts and leaderboard results will be published later in FEB. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
+OllaBench benchmark scripts and leaderboard results will be published later in FEB after I submit my entry into nVidia's Generative AI Developer Challenge. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
