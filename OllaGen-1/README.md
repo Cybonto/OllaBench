@@ -18,7 +18,6 @@ OllaGen1
 
 ## Table of Contents
 
-- [OllaGen1 Overview](#ollagen1-overview)
 - [Installation](#installation)
 - [Methodology](#methodology)
 - [Troubleshooting](#troubleshooting)
@@ -27,13 +26,6 @@ OllaGen1
   - [Known Issues](#known-issues)
   - [Report Issues](#report-issues)
  
-## OllaGen1 Overview
-The grand challenge that most CEO's care about is maintaining the right level of cybersecurity at a minimum cost as companies are not able to reduce cybersecurity risks despite their increased cybersecurity investments [[1]](https://www.qbusiness.pl/uploads/Raporty/globalrisk2021.pdf). Fortunately, the problem can be explained via interdependent cybersecurity (IC) [[2]](https://www.nber.org/system/files/working_papers/w8871/w8871.pdf) as follows. First, optimizing cybersecurity investments in existing large interdependent systems is already a well-known non-convex difficult problem that is still yearning for new solutions. Second, smaller systems are growing in complexity and interdependence. Last, new low frequency, near simultaneous, macro-scale risks such as global pandemics, financial shocks, geopolitical conflicts have compound effects on cybersecurity.
-
-Human factors account for half of the long-lasting challenges in IC as identified by Kianpour et al. [[3]](https://www.mdpi.com/2071-1050/13/24/13677), and Laszka et al. [[4]](http://real.mtak.hu/21924/1/Buttyan4.pdf). Unfortunately, human-centric research within the context of IC is under-explored while research on general IC has unrealistic assumptions about human factors. Fortunately, the dawn of Large Language Models (LLMs) promise a much efficient way to research and develop solutions to problems across domains. In cybersecurity, the Zero-trust principles require the evaluation, validation, and continuous monitoring and LLMs are no exception.
-
-Therefore, OllaGen1 was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors. For immediate evaluation, there are three QA data (sub)sets of "True or False", "Which Cognitive Path", and "Who is who", all of which will be described in further details. For more flexibility, OllaGen1 dataset generator is included and allows for generation of new realistic grounded QA entries, guaranteeing robust LLM evaluation.
-
 ## Installation
 The datasets are in .csv format with data fields of ID (question id), Context (describing the cognitive behavior details relating to the context of cybersecurity compliance or non-compliance), Question, and Answer (the correct reference). To import CSV files into a Python script, a few key components are generally required. First, you need to use the csv module that comes built into Python, which provides functionality to both read from and write to CSV files. To read a CSV file, you typically start by opening the file using the open() function with the appropriate file path and mode ('r' for reading). Then, you can use csv.reader() to create a reader object that allows you to iterate over the rows of the CSV file. You will then need to give the LLM model the Context and the Question as a prompt. After the model returns its answer, you compare that answer with the correct reference to decide whether the model's response is correct. A grader script will be provided for your convenience.
 
