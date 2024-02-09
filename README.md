@@ -26,7 +26,7 @@ Human factors account for half of the long-lasting challenges in IC as identifie
 
 Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors.
 
-OllaBench benchmark scripts and leaderboard results will be published later in FEB after I submit my entry into nVidia's Generative AI Developer Challenge. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
+**OllaBench benchmark scripts and leaderboard results will be published later in FEB after I submit my entry into nVidia's Generative AI Developer Challenge. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.**
 
 
 ![OllaBench-Flows](https://github.com/Cybonto/OllaBench/assets/83996716/e001451d-9978-4de1-b35c-7eaad3602f22)
@@ -34,28 +34,28 @@ OllaBench benchmark scripts and leaderboard results will be published later in F
 
 
 ## Installation
-### Step 1 - Windows Linux Subsystem
+### Windows Linux Subsystem
 If you are using Windows, you need to install WSL. The Windows Subsystem for Linux (WSL) is a compatibility layer introduced by Microsoft that enables users to run Linux binary executables natively on Windows 10 and Windows Server 2019 and later versions. WSL provides a Linux-compatible kernel interface developed by Microsoft, which can then run a Linux distribution on top of it. See [here](https://learn.microsoft.com/en-us/windows/wsl/install) for information on how to install it. In this set up, we use Debian linux. You can check verify linux was installed by executing
 `wsl -l -v`
 You enter WSL by executing the command "wsl" from windows command line window.
 
 Please disregard if you are using a linux system.
 
-### Step 2a - Nvidia Container Toolkit
+### Nvidia Container Toolkit
 The NVIDIA Container Toolkit is a powerful set of tools that allows users to build and run GPU-accelerated Docker containers. It leverages NVIDIA GPUs to enable the deployment of containers that require access to NVIDIA graphics processing units for computing tasks. This toolkit is particularly useful for applications in data science, machine learning, and deep learning, where GPU resources are critical for processing large datasets and performing complex computations efficiently. Instalation instructions are in [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 Please disregard if your computer does not have a GPU.
 
-### Step 2b.option1 - nVidia TensorRT-LLM
+### nVidia TensorRT-LLM
 TensorRT-LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and build TensorRT engines that contain state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs.
 - LlamaIndex [Tutorial](https://docs.llamaindex.ai/en/stable/examples/llm/nvidia_tensorrt.html) on Installing TensorRT-LLM
 - TensorRT-LLM Github [page](https://github.com/NVIDIA/TensorRT-LLM/blob/main/README.md)
 
-### Step 2b.option2 - Ollama
+### Ollama
 - Install Docker Desktop and Ollama with these [instructions](https://github.com/ollama/ollama).
 
-### Step 3 - Run OllaGen-1
+### Run OllaGen-1
 Please go to [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder and follow the instructions to generate the evaluation datasets.
 
-### Step 4 - Execute the OllaBench python script
+### Execute the OllaBench python script
 tba
