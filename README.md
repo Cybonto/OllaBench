@@ -28,6 +28,10 @@ Therefore, OllaBench was born to help both researchers and application developer
 
 OllaBench benchmark scripts and leaderboard results will be published later in FEB after I submit my entry into nVidia's Generative AI Developer Challenge. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
 
+
+![OllaBench Flows](https://github.com/Cybonto/OllaBench/assets/83996716/ba99a7ee-6331-4b6e-9fdb-635e4bdd1f9c)
+
+
 ## Installation
 ### Step 1 - Windows Linux Subsystem
 If you are using Windows, you need to install WSL. The Windows Subsystem for Linux (WSL) is a compatibility layer introduced by Microsoft that enables users to run Linux binary executables natively on Windows 10 and Windows Server 2019 and later versions. WSL provides a Linux-compatible kernel interface developed by Microsoft, which can then run a Linux distribution on top of it. See [here](https://learn.microsoft.com/en-us/windows/wsl/install) for information on how to install it. In this set up, we use Debian linux. You can check verify linux was installed by executing
