@@ -29,7 +29,8 @@ Therefore, OllaBench was born to help both researchers and application developer
 OllaBench benchmark scripts and leaderboard results will be published later in FEB after I submit my entry into nVidia's Generative AI Developer Challenge. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
 
 
-![OllaBench Flows](https://github.com/Cybonto/OllaBench/assets/83996716/ba99a7ee-6331-4b6e-9fdb-635e4bdd1f9c)
+![OllaBench-Flows](https://github.com/Cybonto/OllaBench/assets/83996716/e001451d-9978-4de1-b35c-7eaad3602f22)
+
 
 
 ## Installation
