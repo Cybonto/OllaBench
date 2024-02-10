@@ -56,15 +56,15 @@ The following tested system settings show successful operation for running OllaG
 This quick install is for a single Windows PC use case (without Docker) and for when you need to use OllaGen1 to generate your own datasets. I assume you have nvidia GPU installed.\
 - Go to [TensorRT-LLM for Windows](https://github.com/NVIDIA/TensorRT-LLM/blob/main/windows/README.md) and follow the Quick Start section to install TensorRT-LLM and the prerequisites.
 - If you plan to use OllaGen1 with local LLM, go to [Llama_Index for TensorRT-LLM](https://docs.llamaindex.ai/en/stable/examples/llm/nvidia_tensorrt.html) and follow instrucitons to install Llama_Index, and prepare models for TensorRT-LLM
-- If you plan to use OllaGen1 with OpenAI, please follow OpenAI's intruction to add the api key into your system environment. You will also need to change the llm_framework param in OllaGen1 params.json to "openai".
+- If you plan to use OllaGen1 with OpenAI, please follow OpenAI's intruction to add the api key into your system environment. You will also need to change the `llm_framework` param in OllaGen1 `params.json` to `openai`.
 
 ### Commands to check for key software requirements
-**Python**
-`python -V`
-**nvidia CUDA 12**
-`nvcc -V`
-**Microsoft MPI***
-`mpiexec -hellp`
+**Python** \
+`python -V` \
+**nvidia CUDA 12** \
+`nvcc -V` \
+**Microsoft MPI*** \
+`mpiexec -hellp` \
 
 ## Installation
 The following instructions are mainly for the Docker use case.
