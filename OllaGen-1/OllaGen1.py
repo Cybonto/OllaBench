@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 # IMPORTS
 
@@ -19,8 +17,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import csv
 import json
-
-from openai import OpenAI
 
 ## Import local modules
 #- n/a
@@ -39,6 +35,7 @@ except json.JSONDecodeError:
 node_path = params['node_path']
 edge_path = params['edge_path']
 dict_path = params["dict_path"]
+llm_framework = params["llm_framework"]
 QA_TF_questions = params["QA_TF_questions"]
 QA_TF_coglength = params["QA_TF_coglength"]
 QA_TF_outpath = params["QA_TF_outpath"]
@@ -46,14 +43,27 @@ QA_WCP_questions = params["QA_WCP_questions"]
 QA_WCP_coglength = params["QA_WCP_coglength"]
 QA_WCP_outpath = params["QA_WCP_outpath"]
 QA_WHO_questions = params["QA_WHO_questions"]
-QA_WHO_outpath = params["QA_WHO_outpath"]  
-client = OpenAI(
-    # This is the default and can be omitted
-    api_key=os.environ.get("OPENAI_API_KEY"),
-)
+QA_WHO_outpath = params["QA_WHO_outpath"] 
 
+if llm_framework=="openai":
+    from openai import OpenAI
+    client = OpenAI(
+        # This is the default and can be omitted
+        api_key=os.environ.get("OPENAI_API_KEY"),
+    )
+if llm_framework=="llama_index":
+    from llama_index.llms import LocalTensorRTLLM
+    def completion_to_prompt(completion: str) -> str:
+        """
+        Given a completion, return the prompt using llama2 format.
+        """
+        return f"<s> [INST] {completion} [/INST] "
+    llm = LocalTensorRTLLM(
+    model_path="./model",
+    engine_name="llama_float16_tp1_rank0.engine",
+    tokenizer_dir="meta-llama/Llama-2-13b-chat",
+    completion_to_prompt=completion_to_prompt)
 
-# In[2]:
 
 
 # FUNCTIONS
@@ -170,7 +180,7 @@ def get_random_item(two_level_dict, key1, key2):
         print("IndexError: The list is empty.")
         return None
 
-def get_chatgpt_response(prompt, engine="gpt-3.5-turbo"):
+def get_response(prompt, engine="gpt-3.5-turbo"):
     """
     Takes a prompt and returns a response from ChatGPT using the specified engine.
 
@@ -182,16 +192,20 @@ def get_chatgpt_response(prompt, engine="gpt-3.5-turbo"):
     str: The response from ChatGPT.
     """
     try:
-        response = client.chat.completions.create(
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt,
-                }
-            ],
-            model=engine,
-        )
-        return response.choices[0].message.content
+        if llm_framework=="openai":
+            response = client.chat.completions.create(
+                messages=[
+                    {
+                        "role": "user",
+                        "content": prompt,
+                    }
+                ],
+                model=engine,
+            )
+            return response.choices[0].message.content
+        if llm_framework=="llama_index":
+            response = llm.complete(prompt)
+            return str(response)
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
@@ -238,10 +252,10 @@ def ollagen1_TF(knowledge_graph,a_dict,profile_num,profile_length):
     for profile in profiles:
         story=""
         profile_type = random_flags.pop(0)
-        subject_name = get_chatgpt_response("Give a random human name in the format of 'Firstname Lastname'")
+        subject_name = get_response("Give a random human name in the format of 'Firstname Lastname'")
         for item in profile:
             prompt=str(get_random_item(a_dict, item, profile_type))+" Replace [subject] with "+subject_name
-            story+=" "+get_chatgpt_response(prompt)
+            story+=" "+get_response(prompt)
         ID="TF_"+str(counter)
         pick = str(random.randint(0, 1))+str(profile_type)
         if pick=="1com":
@@ -289,10 +303,10 @@ def ollagen1_WhichCogPath(knowledge_graph,a_dict,profile_num,profile_length):
         story=""
         # now start to generate the main content
         profile_type = random_flags.pop(0)
-        subject_name = get_chatgpt_response("Give a random human name in the format of 'Firstname Lastname'")
+        subject_name = get_response("Give a random human name in the format of 'Firstname Lastname'")
         for item in profile:
             prompt=str(get_random_item(a_dict, item, profile_type))+" Replace [subject] with "+subject_name
-            story+=" "+get_chatgpt_response(prompt)
+            story+=" "+get_response(prompt)
         ID="WCP_"+str(counter)
         question="Which of the following options best reflects "+subject_name+"'s cognitive behavioral constructs. Your answer must begin with (option "
         item1 = profile
@@ -342,8 +356,8 @@ def ollagen1_WHO(knowledge_graph,a_dict,profile_num,difficulty=2):
         #print("Working on pair "+str(counter))
         story_com=""
         story_noncom=""
-        subject_name_com = get_chatgpt_response("Give a random human name in the format of 'Firstname Lastname'")
-        subject_name_noncom = get_chatgpt_response("Give a random human name in the format of 'Firstname Lastname' that is not "+subject_name_com)
+        subject_name_com = get_response("Give a random human name in the format of 'Firstname Lastname'")
+        subject_name_noncom = get_response("Give a random human name in the format of 'Firstname Lastname' that is not "+subject_name_com)
         
         #prepare the flags for story creation
         profile_com_flags = ['com']*profile_length
@@ -358,11 +372,11 @@ def ollagen1_WHO(knowledge_graph,a_dict,profile_num,difficulty=2):
         story_com+="What we know about "+subject_name_com+": "+os.linesep
         for item,flag in zip(profile_com,profile_com_flags): 
             prompt=str(get_random_item(a_dict, item, flag))+" Replace [subject] with "+subject_name_com
-            story_com+=" "+get_chatgpt_response(prompt)
+            story_com+=" "+get_response(prompt)
         story_noncom+="What we know about "+subject_name_noncom+": "+os.linesep
         for item, flag in zip(profile_noncom,profile_noncom_flags): 
             prompt=str(get_random_item(a_dict, item, flag))+" Replace [subject] with "+subject_name_noncom
-            story_noncom+=" "+get_chatgpt_response(prompt)
+            story_noncom+=" "+get_response(prompt)
         pick_order = random.choice([0,1])
         if pick_order==0:
             story = story_com + os.linesep + story_noncom
@@ -382,9 +396,6 @@ def ollagen1_WHO(knowledge_graph,a_dict,profile_num,difficulty=2):
         if counter%20==0:
             print(".", end =" ")
     return QA_WHO_df
-
-
-# In[22]:
 
 
 ## MAIN

@@ -17,6 +17,7 @@
 
 ## Table of Contents
 - [Overview](#overview)
+- [Quick Start](#quick-start)
 - [Installation](#installation)
 
 ## Overview
@@ -26,14 +27,47 @@ Human factors account for half of the long-lasting challenges in IC as identifie
 
 Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors.
 
-**OllaBench benchmark scripts and leaderboard results will be published later in FEB after I submit my entry into nVidia's Generative AI Developer Challenge. For now, please check out its Dataset Generator and sample Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.**
+
+> [!IMPORTANT]
+> Dataset Generator and test Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
+> You need to have either a local LLM stack (nvidia TensorRT-LLM with Llama_Index in my case) or OpenAI api key for generating new OllaBench datasets. Please note that OpenAI throttle Requests per Minutes which may cause significant delays depending on how big will your desired datasets be.
+> When OllaBench white paper is published (later in FEB), OllaBench benchmark scripts and leaderboard results will be made available.
 
 
 ![OllaBench-Flows](https://github.com/Cybonto/OllaBench/assets/83996716/e001451d-9978-4de1-b35c-7eaad3602f22)
 
 
+## Quick Start
+### Evaluate with your own codes
+You can grab the [evaluation datasets](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) to run with your own evaluation codes. Note that the datasets (csv files) are for zero-shot evaluation. It is recommended that you modify the OllaBench Generator 1 (OllaGen1) params.json with your desired specs and run the OllaGen1.py to generate for yourself fresh, UNSEEN datasets that match your custom needs. Check OllaGen-1 README for more details.
+### Use OllaBench
+OllaBench will evaluate your models within Ollama model zoo using OllaGen1 default datasets. You can quickly spin up Ollama with Docker desktop/compose and download LLMs to Ollama. Please check the below [Installation](#installation) section for more details.
+### Tested System Settings
+The following tested system settings show successful operation for running OllaGen1 dataset generator and OllaBench.
+- Primary Generative AI model: Llama2
+- Python version: 3.10
+- Windows version: 11
+- GPU: nvidia geforce RTX 3080 Ti
+- Minimum RAM: [your normal ram use]+[the size of your intended model]
+- Disk space: [your normal disk use]+[minimum software requirements]+[the size of your intended model]
+- Minimum software requirements: nvidia CUDA 12 (nvidia CUDA toolkit), 
+- Additional system requirements:
+### Quick Install of Key Components
+This quick install is for a single Windows PC use case (without Docker) and for when you need to use OllaGen1 to generate your own datasets. I assume you have nvidia GPU installed.\
+- Go to [TensorRT-LLM for Windows](https://github.com/NVIDIA/TensorRT-LLM/blob/main/windows/README.md) and follow the Quick Start section to install TensorRT-LLM and the prerequisites.
+- If you plan to use OllaGen1 with local LLM, go to [Llama_Index for TensorRT-LLM](https://docs.llamaindex.ai/en/stable/examples/llm/nvidia_tensorrt.html) and follow instrucitons to install Llama_Index, and prepare models for TensorRT-LLM
+- If you plan to use OllaGen1 with OpenAI, please follow OpenAI's intruction to add the api key into your system environment. You will also need to change the llm_framework param in OllaGen1 params.json to "openai".
+
+### Commands to check for key software requirements
+**Python**
+`python -V`
+**nvidia CUDA 12**
+`nvcc -V`
+**Microsoft MPI***
+`mpiexec -hellp`
 
 ## Installation
+The following instructions are mainly for the Docker use case.
 ### Windows Linux Subsystem
 If you are using Windows, you need to install WSL. The Windows Subsystem for Linux (WSL) is a compatibility layer introduced by Microsoft that enables users to run Linux binary executables natively on Windows 10 and Windows Server 2019 and later versions. WSL provides a Linux-compatible kernel interface developed by Microsoft, which can then run a Linux distribution on top of it. See [here](https://learn.microsoft.com/en-us/windows/wsl/install) for information on how to install it. In this set up, we use Debian linux. You can check verify linux was installed by executing
 `wsl -l -v`
