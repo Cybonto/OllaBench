@@ -1,5 +1,5 @@
 <div align="center">
-
+  
 ![image](https://github.com/Cybonto/OllaBench/assets/83996716/ea27ca1c-aad4-4d1e-8e42-73d071a02538)
 
 <h4> Evaluating LLMs' Cognitive Behavioral Reasoning for Cybersecurity</h4>
@@ -13,6 +13,7 @@
 <div align="left">
 
 ## Latest News
+* [2024/02/12] [90sec Project Video Brief](https://www.linkedin.com/posts/tamcs_ollabench-advanced-evaluation-of-ai-models-activity-7161816388624404480-OGKS)
 * [2024/02/07] [🚀 OllaGen1 is Launched!](https://github.com/Cybonto/OllaBench/tree/main/OllaGen1)
 
 ## Table of Contents
