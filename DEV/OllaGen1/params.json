@@ -1,0 +1,14 @@
+{
+    "node_path": "../OllaGen-1/Cybonto-Gen1- Nodes.csv",
+    "edge_path": "../OllaGen-1/Cybonto-Gen1- Edges.csv",
+    "dict_path": "../OllaGen-1/Cybonto-Gen1-PromptTemplate.csv",
+    "llm_framework": "llama_index",
+    "QA_TF_questions": 5,
+    "QA_TF_coglength": 4,
+    "QA_TF_outpath": "OllaGen1-QA-TF.csv",
+    "QA_WCP_questions": 5,
+    "QA_WCP_coglength": 4,
+    "QA_WCP_outpath": "OllaGen1-QA-WCP.csv",
+    "QA_WHO_questions": 5,
+    "QA_WHO_outpath": "OllaGen1-QA-WHO.csv"
+}
