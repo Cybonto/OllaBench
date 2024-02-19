@@ -41,7 +41,7 @@ The following tested system settings show successful operation for running OllaG
 ## Development Agenda
 Here is my tentative milestones in temporal order.
 - Release a white paper detailing the scientific rigor behind OllaBench
-- Release version 1.2 of OllaGen with at least 5 more new question types
-- Release version 1.2 of OllaBench with upgraded and more rigorous benchmark mechanism
+- Release version 0.2 of OllaGen with at least 5 more new question types
+- Release version 0.2 of OllaBench with upgraded and more rigorous benchmark mechanism
 - Release OllaBench Leaderboard and related dataset
-- Release version 1.1 of OllaGen-RAG
+- Release version 0.1 of OllaGen-RAG
