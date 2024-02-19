@@ -1,5 +1,5 @@
 <div align="center">
-
+  
 ![image](https://github.com/Cybonto/OllaBench/assets/83996716/ea27ca1c-aad4-4d1e-8e42-73d071a02538)
 
 <h4> Evaluating LLMs' Cognitive Behavioral Reasoning for Cybersecurity</h4>
@@ -13,6 +13,7 @@
 <div align="left">
 
 ## Latest News
+* [2024/02/12] [90sec Project Video Brief](https://www.linkedin.com/posts/tamcs_ollabench-advanced-evaluation-of-ai-models-activity-7161816388624404480-OGKS)
 * [2024/02/07] [🚀 OllaGen1 is Launched!](https://github.com/Cybonto/OllaBench/tree/main/OllaGen1)
 
 ## Table of Contents
@@ -28,11 +29,11 @@ Human factors account for half of the long-lasting challenges in IC as identifie
 Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors.
 
 
-> [!IMPORTANT]
-> Dataset Generator and test Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.
-> You need to have either a local LLM stack (nvidia TensorRT-LLM with Llama_Index in my case) or OpenAI api key for generating new OllaBench datasets. Please note that OpenAI throttle Requests per Minutes which may cause significant delays depending on how big will your desired datasets be.
+> :exclamation:**IMPORTANT**:exclamation:\
+> Dataset Generator and test Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.\
+> You need to have either a local LLM stack (nvidia TensorRT-LLM with Llama_Index in my case) or OpenAI api key for generating new OllaBench datasets.\
+> OpenAI throttle Requests per Minutes which may cause significant delays in generating big datasets.\
 > When OllaBench white paper is published (later in FEB), OllaBench benchmark scripts and leaderboard results will be made available.
-
 
 ![OllaBench-Flows](https://github.com/Cybonto/OllaBench/assets/83996716/e001451d-9978-4de1-b35c-7eaad3602f22)
 
@@ -50,21 +51,21 @@ The following tested system settings show successful operation for running OllaG
 - GPU: nvidia geforce RTX 3080 Ti
 - Minimum RAM: [your normal ram use]+[the size of your intended model]
 - Disk space: [your normal disk use]+[minimum software requirements]+[the size of your intended model]
-- Minimum software requirements: nvidia CUDA 12 (nvidia CUDA toolkit), 
-- Additional system requirements:
+- Minimum software requirements: nvidia CUDA 12 (nvidia CUDA toolkit), Microsoft MPI, MSVC compiller, llama_index
+- Additional system requirements: docker compose and other related docker requirements if you use Docker stack
 ### Quick Install of Key Components
 This quick install is for a single Windows PC use case (without Docker) and for when you need to use OllaGen1 to generate your own datasets. I assume you have nvidia GPU installed.\
 - Go to [TensorRT-LLM for Windows](https://github.com/NVIDIA/TensorRT-LLM/blob/main/windows/README.md) and follow the Quick Start section to install TensorRT-LLM and the prerequisites.
 - If you plan to use OllaGen1 with local LLM, go to [Llama_Index for TensorRT-LLM](https://docs.llamaindex.ai/en/stable/examples/llm/nvidia_tensorrt.html) and follow instrucitons to install Llama_Index, and prepare models for TensorRT-LLM
-- If you plan to use OllaGen1 with OpenAI, please follow OpenAI's intruction to add the api key into your system environment. You will also need to change the llm_framework param in OllaGen1 params.json to "openai".
+- If you plan to use OllaGen1 with OpenAI, please follow OpenAI's intruction to add the api key into your system environment. You will also need to change the `llm_framework` param in OllaGen1 `params.json` to `openai`.
 
 ### Commands to check for key software requirements
-**Python**
-`python -V`
-**nvidia CUDA 12**
-`nvcc -V`
-**Microsoft MPI***
-`mpiexec -hellp`
+**Python** \
+`python -V` \
+**nvidia CUDA 12** \
+`nvcc -V` \
+**Microsoft MPI*** \
+`mpiexec -hellp` \
 
 ## Installation
 The following instructions are mainly for the Docker use case.
@@ -90,6 +91,3 @@ TensorRT-LLM provides users with an easy-to-use Python API to define Large Langu
 
 ### Run OllaGen-1
 Please go to [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder and follow the instructions to generate the evaluation datasets.
-
-### Execute the OllaBench python script
-tba
