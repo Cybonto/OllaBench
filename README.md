@@ -13,6 +13,7 @@
 <div align="left">
 
 ## Latest News
+* [2024/02/20] [OllaBench v.0.2 Development Agenda is out. Will be twice as powerful :boom: ](https://github.com/Cybonto/OllaBench/tree/main/DEV#development-agenda)
 * [2024/02/12] [90sec Project Video Brief](https://www.linkedin.com/posts/tamcs_ollabench-advanced-evaluation-of-ai-models-activity-7161816388624404480-OGKS)
 * [2024/02/07] [🚀 OllaGen1 is Launched!](https://github.com/Cybonto/OllaBench/tree/main/OllaGen1)
 
