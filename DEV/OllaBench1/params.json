@@ -1,14 +1,13 @@
 {
-    "node_path": "../Cybonto-Gen1- Nodes.csv",
-    "edge_path": "../Cybonto-Gen1- Edges.csv",
-    "dict_path": "../Cybonto-Gen1-PromptTemplate.csv",
-    "llm_framework": "llama_index",
-    "QA_TF_questions": 5,
-    "QA_TF_coglength": 4,
-    "QA_TF_outpath": "OllaGen1-QA-TF.csv",
-    "QA_WCP_questions": 5,
-    "QA_WCP_coglength": 4,
-    "QA_WCP_outpath": "OllaGen1-QA-WCP.csv",
-    "QA_WHO_questions": 5,
-    "QA_WHO_outpath": "OllaGen1-QA-WHO.csv"
+    "llm_framework": "ollama",
+    "llm_endpoints": "http://localhost:11434/",
+    "llm_models": ["llama2:7b","orca2:7b","bogus"],
+    "llm_leaderboard": "OllaGen1_LeaderBoard.csv",
+    "bench_tries": 3,
+    "QA_TF_inpath": "../OllaGen1/OllaGen1-QA-TF.csv",
+    "QA_TF_outpath": "OllaGen1-QA-TF_results.csv",
+    "QA_WCP_inpath": "../OllaGen1/OllaGen1-QA-WCP.csv",
+    "QA_WCP_outpath": "OllaGen1-QA-WCP_results.csv",
+    "QA_WHO_inpath": "../OllaGen1/OllaGen1-QA-WHO.csv",
+    "QA_WHO_outpath": "OllaGen1-QA-WHO_results.csv"
 }
