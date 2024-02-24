@@ -34,7 +34,7 @@ Therefore, OllaBench was born to help both researchers and application developer
 > Dataset Generator and test Datasets at the [OllaGen1](https://github.com/Cybonto/OllaBench/tree/main/OllaGen-1) subfolder.\
 > You need to have either a local LLM stack (nvidia TensorRT-LLM with Llama_Index in my case) or OpenAI api key for generating new OllaBench datasets.\
 > OpenAI throttle Requests per Minutes which may cause significant delays in generating big datasets.\
-> When OllaBench white paper is published (later in FEB), OllaBench benchmark scripts and leaderboard results will be made available.
+> When OllaBench white paper is published (later in MARCH), OllaBench benchmark scripts and leaderboard results will be made available.
 
 ![OllaBench-Flows](https://github.com/Cybonto/OllaBench/assets/83996716/e001451d-9978-4de1-b35c-7eaad3602f22)
 
