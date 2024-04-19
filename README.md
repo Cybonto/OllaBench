@@ -6,13 +6,14 @@
 
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat)]()
 [![python](https://img.shields.io/badge/python-3.10-green)]()
-[![Static Badge](https://img.shields.io/badge/release-0.1-green?style=flat&color=green)]()
+[![Static Badge](https://img.shields.io/badge/release-0.2-green?style=flat&color=green)]()
 [![license](https://img.shields.io/badge/license-Apache%202-blue)](./LICENSE)
 
 ---
 <div align="left">
 
 ## Latest News
+* [2024/04/19] OllaBench v.0.2 is out. Benchmark dataset and sample LLM response results were uploaded. A white paper with benchmark analysis of mainstream open-weight models including the newly released Llama3 will be shared as soon as possible!
 * [2024/02/20] [OllaBench v.0.2 Development Agenda is out. Will be twice as powerful :boom: ](https://github.com/Cybonto/OllaBench/tree/main/DEV#development-agenda)
 * [2024/02/12] [90sec Project Video Brief](https://www.linkedin.com/posts/tamcs_ollabench-advanced-evaluation-of-ai-models-activity-7161816388624404480-OGKS)
 * [2024/02/07] [🚀 OllaGen1 is Launched!](https://github.com/Cybonto/OllaBench/tree/main/OllaGen1)
