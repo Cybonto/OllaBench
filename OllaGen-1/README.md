@@ -14,6 +14,7 @@ OllaGen1
 <div align="left">
 
 ## Latest News
+* [2024/04/19] Benchmark datasets v.0.2 - OllaGen1-QA-core.csv and OllaGen1-QA-full.csv - are uploaded!
 * [2024/02/07] [🚀 OllaGen1 is Launched!](https://github.com/Cybonto/OllaBench/tree/main/OllaGen1)
 
 ## Table of Contents
