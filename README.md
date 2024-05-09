@@ -13,6 +13,7 @@
 <div align="left">
 
 ## Latest News
+* [2024/04/19] Benchmarking of models are running while a white paper is being developed. Early results indicate mainstream LLM models do not score high - a sign of a good benchmark.
 * [2024/04/19] OllaBench v.0.2 is out. Benchmark dataset and sample LLM response results were uploaded. A white paper with benchmark analysis of mainstream open-weight models including the newly released Llama3 will be shared as soon as possible!
 * [2024/02/20] [OllaBench v.0.2 Development Agenda is out. Will be twice as powerful :boom: ](https://github.com/Cybonto/OllaBench/tree/main/DEV#development-agenda)
 * [2024/02/12] [90sec Project Video Brief](https://www.linkedin.com/posts/tamcs_ollabench-advanced-evaluation-of-ai-models-activity-7161816388624404480-OGKS)
