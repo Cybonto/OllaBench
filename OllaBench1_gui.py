@@ -1,6 +1,6 @@
 import hmac
 import streamlit as st
-from OllaBench_gui_menu import menu
+from OllaBench_gui_menu import menu, show_header
 
 # Initialize st.session_state.role to None
 if "role" not in st.session_state:
@@ -9,14 +9,8 @@ if "password" not in st.session_state:
     st.session_state.password = None
 if "username" not in st.session_state:
     st.session_state.username = None
-
-def show_header():
-    col1, col2 = st.columns([0.1,0.2])
-    with col1:
-        st.write(" ")
-    with col2:
-        st.image('logo.png', width=180)
-    return None
+if "healthcheck_passed" not in st.session_state:
+    st.session_state.healthcheck_passed = False
 
 def check_password():
     """Returns `True` if the user had a correct password."""
@@ -61,5 +55,6 @@ show_header()
 if not check_password():
     st.stop()
 menu()
+
 st.write("Brief introduction and stated important requirements")
 st.write(st.session_state.role)

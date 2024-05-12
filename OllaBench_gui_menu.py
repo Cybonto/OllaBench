@@ -1,11 +1,20 @@
 import streamlit as st
 
+def show_header():
+    col1, col2 = st.columns([0.1,0.2])
+    with col1:
+        st.write(" ")
+    with col2:
+        st.image('logo.png', width=180)
+    return None
+    
 def logout():
     try:
-        del st.session_state["password_correct"]
-        del st.session_state["password"]
-        del st.session_state["username"]
-        del st.session_state["role"]
+        del st.session_state.password_correct
+        del st.session_state.password
+        del st.session_state.username
+        del st.session_state.role
+        del st.session_state.healthcheck_passed
     except:
         pass
     st.switch_page("OllaBench1_gui.py")

@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[48]:
-
-
-# IMPORTS
-
 ## Import Python Libraries
 import os
 import doctest
@@ -24,12 +19,6 @@ import matplotlib.pyplot as plt
 import csv
 import json
 
-
-# In[ ]:
-
-
-# Declare Prod Only Variables here
-# Do NOT execute this cell in Dev
 params_path="params.json"
 params={}
 # Read the parameters from the JSON file
@@ -52,10 +41,6 @@ QA_full_outpath = params["QA_full_outpath"]
 
 QA_coglength = 5
 name_batch_size = 1000
-
-
-# In[49]:
-
 
 affect_com = []
 affect_noncom = []
@@ -98,10 +83,6 @@ threatseverity_noncom = []
 vulnerability_com = []
 vulnerability_noncom = []
 names = []
-
-
-# In[50]:
-
 
 # FUNCTIONS
 

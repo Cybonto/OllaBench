@@ -1,0 +1,79 @@
+[
+    {
+        "file_path": "admin/file_list.csv",
+        "category": "Admin",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "7ac4dbf6d5731b183452bec64bc3b2c1faf208995dd1cf607c45f7c546e5ad34"
+    },
+    {
+        "file_path": "OllaGen-1/Cybonto-Gen1- Edges.csv",
+        "category": "Knowledge",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "4ae3e9bee9b4efdc2f374c46c6e890305f8b1ed1f6d60ec9ceb8930f2686e84e"
+    },
+    {
+        "file_path": "OllaGen-1/Cybonto-Gen1- Nodes.csv",
+        "category": "Knowledge",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "4c9b5a559365a42851d840e1aca3d2b4e21d9ceef37c0ae30670073532675e33"
+    },
+    {
+        "file_path": "OllaGen-1/Cybonto-Gen1-PromptTemplate.csv",
+        "category": "Knowledge",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "2c8e7d731bec6fb67d0ab85428a4322452530f0dd3497bc6a9aca081fc7d2777"
+    },
+    {
+        "file_path": "OllaGen-1/OllaGen1-QA-core.csv",
+        "category": "OllaGen1",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "b8736677c102ac0ab1d170e46bc42ee633b24c5def233a7ac37d18b90a51eb06"
+    },
+    {
+        "file_path": "OllaGen-1/OllaGen1-QA-full.csv",
+        "category": "OllaGen1",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "678d198851193ddb158abb36580d3c5c00ffe77a50eebbdddeca524c4ee32c9e"
+    },
+    {
+        "file_path": "OllaGen-1/OllaGen1.py",
+        "category": "OllaGen1",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "d1ff4261c554eb149454f4da183c5aebfec9289982753728616a778898f7788e"
+    },
+    {
+        "file_path": "OllaGen-1/params.json",
+        "category": "OllaGen1",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 10:39:04",
+        "hash": "0fed71ff103e9af32237d2a7f31c50b12061baa8615fcd66c79474ab0ac726bf"
+    },
+    {
+        "file_path": "admin/file_list.csv",
+        "category": "Admin",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 13:10:17",
+        "hash": "c395eb7303cd82add716ddcc8a081094a138998acc36f52d3dfc0010239e3956"
+    },
+    {
+        "file_path": "OllaBench1.py",
+        "category": "OllaBench1",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 13:10:17",
+        "hash": "d3b856d3a9519f5a0c1dd4b0ea6d08beb83f8a4b111f5068491d873e231a5058"
+    },
+    {
+        "file_path": "params.json",
+        "category": "OllaBench1",
+        "admin_reviewed": "1",
+        "date_time": "2024-05-12 13:10:17",
+        "hash": "d4a11941de86e0f2decbe9e611278ad5b3cf748a664e5f2c7fb061ab294e6f85"
+    }
+]
