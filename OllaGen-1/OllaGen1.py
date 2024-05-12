@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[48]:
+
 
 # IMPORTS
 
@@ -21,6 +23,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import csv
 import json
+
+
+# In[ ]:
 
 
 # Declare Prod Only Variables here
@@ -47,6 +52,9 @@ QA_full_outpath = params["QA_full_outpath"]
 
 QA_coglength = 5
 name_batch_size = 1000
+
+
+# In[49]:
 
 
 affect_com = []
@@ -90,6 +98,10 @@ threatseverity_noncom = []
 vulnerability_com = []
 vulnerability_noncom = []
 names = []
+
+
+# In[50]:
+
 
 # FUNCTIONS
 
@@ -1004,6 +1016,9 @@ def function_template ():
         print()
     except Exception as e:
         return f"An error occurred: {str(e)}"
+
+
+# In[ ]:
 
 
 ## MAIN
