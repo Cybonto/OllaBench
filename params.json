@@ -1,8 +1,8 @@
 {
     "llm_framework": "ollama",
     "llm_endpoints": "http://localhost:11434/",
-    "llm_models": ["mistral:7b","orca2:13b","phi:2.7b","vicuna:13b","mixtral:8x7b","bogus","llama2:70b"],
+    "llm_models": ["llama2:7b","orca2:7b","llama2:13b","llama2:70b","mistral:7b","orca2:13b","phi:2.7b","vicuna:13b","mixtral:8x7b","bogus"],
     "llm_leaderboard": "OllaGen1_LeaderBoard.csv",
     "bench_tries": 3,
-    "QA_inpath": "./OllaGen-1/OllaGen1-QA-full.csv"
+    "QA_inpath": "OllaGen1-QA-full.csv"
 }
