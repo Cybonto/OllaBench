@@ -1,8 +1,8 @@
 {
     "llm_framework": "ollama",
     "llm_endpoints": "http://localhost:11434/",
-    "llm_models": ["llama2:7b","orca2:7b","llama2:13b","llama2:70b","mistral:7b","orca2:13b","phi:2.7b","vicuna:13b","mixtral:8x7b","bogus"],
+    "llm_models": ["llama3:8b-text-q4_0", "wizardlm2:7b-q4_0", "qwen:7b-q4_0", "qwen:4b-chat-v1.5-q4_0", "openhermes:7b-mistral-v2.5-q4_0", "tinyllama:1.1b-chat-v0.6-q4_0", "falcon:7b-instruct-q4_0", "falcon:7b-text-q4_0", "stablelm2:12b-q4_0", "stablelm2:1.6b-q4_0", "falcon2:11b-q4_0", "bogus"],
     "llm_leaderboard": "OllaGen1_LeaderBoard.csv",
     "bench_tries": 3,
-    "QA_inpath": "OllaGen1-QA-full.csv"
+    "QA_inpath": "./OllaGen-1/OllaGen1-QA-full.csv"
 }
