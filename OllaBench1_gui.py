@@ -2,7 +2,7 @@ import hmac
 import streamlit as st
 from OllaBench_gui_menu import menu, show_header
 
-# Initialize st.session_state.role to None
+# Initialize st.session_state
 if "role" not in st.session_state:
     st.session_state.role = None
 if "password" not in st.session_state:
