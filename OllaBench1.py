@@ -1,12 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-# OllaBench1 v.0.2
-# IMPORTS
-
 ## Import Python Libraries
 import os
 import doctest
@@ -81,13 +75,7 @@ else:
     llm_models[:] = [item for item in llm_models if item in llm_list] #remove model names that are not installed
     print("The following model(s) does not exist in Ollama: "+str([item for item in llm_names_bak if item not in llm_models]))
 
-
-# In[3]:
-
-
 # FUNCTIONS
-
-
 
 def write_df_to_csv(df, csv_file):
     # If the CSV file already exists, append to it, otherwise create a new file

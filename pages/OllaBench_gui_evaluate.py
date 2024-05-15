@@ -5,6 +5,7 @@ from io import StringIO
 import asyncio
 import aiofiles
 import streamlit as st
+from autoviz import AutoViz_Class
 
 from OllaBench_gui_menu import menu_with_redirect, show_header
 
@@ -36,7 +37,6 @@ async def read_csv_async(file_path):
     async with aiofiles.open(file_path, mode='r', encoding='utf-8') as file:
         content = await file.read()
     df = pd.read_csv(StringIO(content))  # Use StringIO from the io module
-    st.session_state.processed_files += 1 # keeps track of processed files
     return df[columns_of_interest]
 
 async def process_model_files(directory, model_name):
@@ -73,7 +73,7 @@ async def evaluation(directory):
             'Avg Target Factor Duration': df['TargetFactor_TotalDuration'].mean(),
             'Avg Target Factor Counts': df['TargetFactor_EvalCounts'].mean(),
             'Avg Target Factor score': df['TargetFactor_score'].mean(),
-            'Avg Score': df['Total score'].mean(),
+            'Avg Score': df['Total score'].mean()/4,
             'Wasted WCP Counts': wasted_wcp_counts,
             'Wasted WHO Counts': wasted_who_counts,
             'Wasted Team Risk Counts': wasted_team_risk_counts,
@@ -82,11 +82,9 @@ async def evaluation(directory):
                                wasted_team_risk_counts + wasted_target_factor_counts) / (n * 4) if n > 0 else 0
         }
 
-        st.session_state.processed_models += 1
-
     return results
 
-def plot_model_comparison(df, column_name):
+def plot_model_comparison(df, column_names, type="line"):
     """
     Plots a comparison of all models based on a specified column.
 
@@ -97,14 +95,51 @@ def plot_model_comparison(df, column_name):
     Raises:
     ValueError: If the column_name is not in the DataFrame.
     """
-    if column_name not in df.columns:
-        raise ValueError(f"Column '{column_name}' not found in DataFrame.")
+    # Check for column existence
+    missing_columns = [col for col in column_names if col not in df.columns]
+    if missing_columns:
+        raise ValueError(f"Columns '{', '.join(missing_columns)}' not found in DataFrame.")
 
     # Extract the relevant data
-    model_data = df[column_name]
-    st.write(f'Comparison of {column_name} Across Models')
-    st.bar_chart(model_data)
+    model_data = df[column_names]
+    st.write(f'Comparison of {column_names} Across Models')
+    if type=="line":
+        st.line_chart(model_data)
+    if type=="bar":
+        st.bar_chart(model_data)
 
+def create_random_dir (base_path="./"):
+    dir_name = str(uuid.uuid4())
+    dir_path = os.path.join(base_path, dir_name)
+    os.makedirs(dir_path, exist_ok=True)
+    return dir_path
+
+def plot_dataviz (df, target="None"):
+    target_col=""
+    if target=="None":
+        target_col = df.columns[-1]
+    elif target in df.columns:
+        target_col = target
+    else:
+        st.write("Incorrect column name was give for ploting dataviz")
+        return None
+
+    plot_path = create_random_dir(base_path="plots/")
+    AV = AutoViz_Class()
+    AV.AutoViz(
+        filename='',
+        dfte=df,
+        depVar=target_col,
+        verbose=2, #save to disk plots
+        chart_format='jpg',
+        save_plot_dir=plot_path
+    )
+    image_path = os.path.join(plot_path,target_col)
+    plot_files = os.listdir(image_path)
+    for file in plot_files:
+        st.image(os.path.join(image_path,file))
+
+    return None
 
 # Main Streamlit app starts here
 show_header()
@@ -145,11 +180,12 @@ st.subheader("Consistency Metrics")
 #tba
 
 st.subheader("Comparision Charts")
-plot_model_comparison(result_dfT, 'Avg WCP score')
-plot_model_comparison(result_dfT, 'Avg WHO score')
-plot_model_comparison(result_dfT, 'Avg Team Risk score')
-plot_model_comparison(result_dfT, 'Avg Target Factor score')
-plot_model_comparison(result_dfT, 'Wasted Average')
+plot_model_comparison(result_dfT, ['Avg WCP score','Avg WHO score','Avg Team Risk score','Avg Target Factor score'])
+#plot_model_comparison(result_dfT, 'Avg WHO score')
+#plot_model_comparison(result_dfT, 'Avg Team Risk score')
+#plot_model_comparison(result_dfT, 'Avg Target Factor score')
+plot_model_comparison(result_dfT, ['Avg Score'], type="bar")
+plot_model_comparison(result_dfT, ['Wasted Average'], type="bar")
 
 st.subheader("Data Analysis")
 #tba

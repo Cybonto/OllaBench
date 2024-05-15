@@ -21,4 +21,4 @@ if not st.session_state.healthcheck_passed:
     st.warning("System health checking is not passed or not performed. Please run health check.")
     st.stop()
 
-st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
+#st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
