@@ -142,8 +142,8 @@ def get_response(llm_framework,a_model,a_prompt):
     if llm_framework =="ollama":
         result = ollama.generate(model=a_model, prompt= a_prompt, stream=False)
         while cache != str(result['response']):
-            cache = str(result['response'])
             time.sleep(1)
+            cache = str(result['response'])
     return result
 
 def grade_model(a_model,input_df):
@@ -177,7 +177,6 @@ def grade_model(a_model,input_df):
             {row["P1_profile"]}
             Here are the intelligence about {row["P2_name"]} with comments from trusted experts and/or {row["P2_name"]}'s recorded statement(s).
             {row["P2_profile"]}
-
             """
         #print(context)
         WCP_Question = row["WCP_Question"]
@@ -196,29 +195,29 @@ def grade_model(a_model,input_df):
         flag="init"
         WCP_response = get_response("ollama",a_model,str(context+WCP_Question))
         while flag!= WCP_response['response']:
-            time.sleep(1)
             flag= WCP_response['response']
+            time.sleep(1)
         if check_answer(WCP_Answer,WCP_response['response']):
             WCP_score = 1
         
         WHO_response = get_response("ollama",a_model,str(context+WHO_Question))
         while flag!= WHO_response['response']:
-            time.sleep(1)
             flag= WHO_response['response']
+            time.sleep(1)
         if check_answer(WHO_Answer,WHO_response['response']):
             WHO_score = 1
 
         TeamRisk_response = get_response("ollama",a_model,str(context+TeamRisk_Question))
         while flag!= TeamRisk_response['response']:
-            time.sleep(1)
             flag= TeamRisk_response['response']
+            time.sleep(1)
         if check_answer(TeamRisk_Answer,TeamRisk_response['response']):
             TeamRisk_score = 1
         
         TargetFactor_response = get_response("ollama",a_model,str(context+TargetFactor_Question))
         while flag!= TargetFactor_response['response']:
-            time.sleep(1)
             flag= TargetFactor_response['response']
+            time.sleep(1)
         if check_answer(TargetFactor_Answer,TargetFactor_response['response']):
             TargetFactor_score = 1
 
