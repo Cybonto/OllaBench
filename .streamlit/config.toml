@@ -1,0 +1,4 @@
+[client]
+# https://docs.streamlit.io/develop/api-reference/configuration/config.toml#client
+showSidebarNavigation = false
+toolbarMode = "viewer"

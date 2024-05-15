@@ -1,0 +1,11 @@
+category,file path,admin reviewed
+Admin,admin/file_list.csv,0
+Knowledge,OllaGen-1/Cybonto-Gen1- Edges.csv,0
+Knowledge,OllaGen-1/Cybonto-Gen1- Nodes.csv,0
+Knowledge,OllaGen-1/Cybonto-Gen1-PromptTemplate.csv,0
+OllaGen1,OllaGen-1/OllaGen1-QA-core.csv,0
+OllaGen1,OllaGen-1/OllaGen1-QA-full.csv,0
+OllaGen1,OllaGen-1/OllaGen1.py,0
+OllaGen1,OllaGen-1/params.json,0
+OllaBench1,OllaBench1.py,0
+OllaBench1,params.json,0

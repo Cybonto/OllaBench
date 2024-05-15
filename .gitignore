@@ -1,1 +1,3 @@
-OllaBench1.py
+_pycache_/*
+/pages/__pycache__
+/__pycache__
