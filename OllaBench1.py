@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# OllaBench1 v.0.2
+# IMPORTS
+
 ## Import Python Libraries
 import os
 import doctest
@@ -75,6 +78,7 @@ else:
     llm_models[:] = [item for item in llm_models if item in llm_list] #remove model names that are not installed
     print("The following model(s) does not exist in Ollama: "+str([item for item in llm_names_bak if item not in llm_models]))
 
+
 # FUNCTIONS
 
 def write_df_to_csv(df, csv_file):
@@ -138,12 +142,10 @@ def check_answer (reference, answer):
         return False
 
 def get_response(llm_framework,a_model,a_prompt):
-    cache=""
     if llm_framework =="ollama":
         result = ollama.generate(model=a_model, prompt= a_prompt, stream=False)
-        while cache != str(result['response']):
+        while "eval_duration" not in result:
             time.sleep(1)
-            cache = str(result['response'])
     return result
 
 def grade_model(a_model,input_df):
@@ -164,19 +166,18 @@ def grade_model(a_model,input_df):
     # load the model in Ollama
     get_response("ollama",a_model,'just say yes')
 
-    greenlight = True
+    turn = 0
     for index, row in input_df.iterrows():
-        while not greenlight:
+        while turn != index:
             time.sleep(10)
-        greenlight = False
 
         score=0
-
         context = f"""
             Here are the intelligence about {row["P1_name"]} with comments from trusted experts and/or {row["P1_name"]}'s recorded statement(s).
             {row["P1_profile"]}
             Here are the intelligence about {row["P2_name"]} with comments from trusted experts and/or {row["P2_name"]}'s recorded statement(s).
             {row["P2_profile"]}
+
             """
         #print(context)
         WCP_Question = row["WCP_Question"]
@@ -192,51 +193,46 @@ def grade_model(a_model,input_df):
         TargetFactor_Answer = row["TargetFactor_Answer"]
         TargetFactor_score = 0
 
-        flag="init"
         WCP_response = get_response("ollama",a_model,str(context+WCP_Question))
-        while flag!= WCP_response['response']:
-            flag= WCP_response['response']
+        while "eval_duration" not in WCP_response:
             time.sleep(1)
         if check_answer(WCP_Answer,WCP_response['response']):
             WCP_score = 1
         
-        WHO_response = get_response("ollama",a_model,str(context+WHO_Question))
-        while flag!= WHO_response['response']:
-            flag= WHO_response['response']
-            time.sleep(1)
-        if check_answer(WHO_Answer,WHO_response['response']):
-            WHO_score = 1
+        if "eval_duration" in WCP_response:
+            WHO_response = get_response("ollama",a_model,str(context+WHO_Question))
+            while "eval_duration" not in WHO_response:
+                time.sleep(1)
+            if check_answer(WHO_Answer,WHO_response['response']):
+                WHO_score = 1
+            if "eval_duration" in WHO_response:
+                TeamRisk_response = get_response("ollama",a_model,str(context+TeamRisk_Question))
+                while "eval_duration" not in TeamRisk_response:
+                    time.sleep(1)
+                if check_answer(TeamRisk_Answer,TeamRisk_response['response']):
+                    TeamRisk_score = 1
+                if "eval_duration" in TeamRisk_response:
+                    TargetFactor_response = get_response("ollama",a_model,str(context+TargetFactor_Question))
+                    while "eval_duration" not in TargetFactor_response:
+                        time.sleep(1)
+                    if check_answer(TargetFactor_Answer,TargetFactor_response['response']):
+                        TargetFactor_score = 1
+                    if "eval_duration" in TargetFactor_response:
+                        score = WCP_score+WHO_score+TeamRisk_score+TargetFactor_score
 
-        TeamRisk_response = get_response("ollama",a_model,str(context+TeamRisk_Question))
-        while flag!= TeamRisk_response['response']:
-            flag= TeamRisk_response['response']
-            time.sleep(1)
-        if check_answer(TeamRisk_Answer,TeamRisk_response['response']):
-            TeamRisk_score = 1
-        
-        TargetFactor_response = get_response("ollama",a_model,str(context+TargetFactor_Question))
-        while flag!= TargetFactor_response['response']:
-            flag= TargetFactor_response['response']
-            time.sleep(1)
-        if check_answer(TargetFactor_Answer,TargetFactor_response['response']):
-            TargetFactor_score = 1
-
-        score = WCP_score+WHO_score+TeamRisk_score+TargetFactor_score
-
-        results.append([row['ID'], a_model, str(context), WCP_Question, WCP_Answer,
-                        WCP_response['total_duration'],WCP_response['eval_count'], str(WCP_response['response']),WCP_score,
-                        WHO_Question, WHO_Answer,
-                        WHO_response['total_duration'],WHO_response['eval_count'], str(WHO_response['response']),WHO_score,
-                        TeamRisk_Question, TeamRisk_Answer,
-                        TeamRisk_response['total_duration'],TeamRisk_response['eval_count'], str(TeamRisk_response['response']),TeamRisk_score,
-                        TargetFactor_Question, TargetFactor_Answer,
-                        TargetFactor_response['total_duration'],TargetFactor_response['eval_count'], str(TargetFactor_response['response']),TargetFactor_score,
-                        score
-                        ])
+                        results.append([row['ID'], a_model, str(context), WCP_Question, WCP_Answer,
+                                        WCP_response['total_duration'],WCP_response['eval_count'], str(WCP_response['response']),WCP_score,
+                                        WHO_Question, WHO_Answer,
+                                        WHO_response['total_duration'],WHO_response['eval_count'], str(WHO_response['response']),WHO_score,
+                                        TeamRisk_Question, TeamRisk_Answer,
+                                        TeamRisk_response['total_duration'],TeamRisk_response['eval_count'], str(TeamRisk_response['response']),TeamRisk_score,
+                                        TargetFactor_Question, TargetFactor_Answer,
+                                        TargetFactor_response['total_duration'],TargetFactor_response['eval_count'], str(TargetFactor_response['response']),TargetFactor_score,
+                                        score
+                                        ])
+                        turn += 1
         if index%50==0:
             print(".", end =" ", flush=True)
-
-        greenlight = True
         
     results_df = pd.DataFrame(results,columns=['ID', 'Model', 'Context', 'WCP_Question', 'WCP_Correct_Answer',
                                                     'WCP_TotalDuration','WCP_EvalCounts','WCP_Response','WCP_score',
@@ -293,10 +289,6 @@ def function_template ():
     except Exception as e:
         return f"An error occurred: {str(e)}"
     
-
-
-# In[3]:
-
 
 ## MAIN
 
