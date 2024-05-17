@@ -5,7 +5,7 @@ def show_header():
     with col1:
         st.write(" ")
     with col2:
-        st.image('logo.png', width=180)
+        st.image('logo.png', width=120)
     return None
     
 def logout():
@@ -26,8 +26,9 @@ def authenticated_menu():
     if st.session_state.role in ["admin", "user"]:
         st.sidebar.page_link("pages/OllaBench_gui_about.py", label=":blush: About OllaBench")
         st.sidebar.page_link("pages/OllaBench_gui_health_check.py", label=":mag: Health Check")
+        st.sidebar.page_link("pages/OllaBench_gui_generate_dataset.py", label=":arrows_counterclockwise: Generate Dataset")
         st.sidebar.page_link("pages/OllaBench_gui_generate_responses.py", label=":inbox_tray: Generate Responses")
-        st.sidebar.page_link("pages/OllaBench_gui_evaluate.py", label=":scales: Evaluate Models")
+        st.sidebar.page_link("pages/OllaBench_gui_evaluate.py", label=":bar_chart: Evaluate Models")
         st.sidebar.page_link(
             "pages/OllaBench_gui_admin_console.py",
             label=":pick: Admin Console",

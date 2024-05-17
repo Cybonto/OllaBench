@@ -1,6 +1,7 @@
 import os
 import time
 import pandas as pd
+import hashlib
 from io import StringIO
 import asyncio
 import aiofiles
@@ -18,7 +19,8 @@ columns_of_interest = [
 ]
 
 # Functions
-def list_model_names(directory):
+
+def list_model_names(directory: str) -> list:
     model_names = set()  # Using a set to avoid duplicate model names
     files = os.listdir(directory)
     # count total files for progress tracking
@@ -33,13 +35,14 @@ def list_model_names(directory):
     results.sort()
     return results
 
-async def read_csv_async(file_path):
+
+async def read_csv_async(file_path: str) -> pd.DataFrame:
     async with aiofiles.open(file_path, mode='r', encoding='utf-8') as file:
         content = await file.read()
     df = pd.read_csv(StringIO(content))  # Use StringIO from the io module
     return df[columns_of_interest]
 
-async def process_model_files(directory, model_name):
+async def process_model_files(directory: str, model_name: str) -> pd.DataFrame:
     tasks = []
     for filename in os.listdir(directory):
         if filename.startswith(model_name) and filename.endswith("_QA_Results.csv"):
@@ -48,7 +51,7 @@ async def process_model_files(directory, model_name):
     dataframes = await asyncio.gather(*tasks)
     return pd.concat(dataframes, ignore_index=True)
 
-async def evaluation(directory):
+async def evaluation(directory: str) -> dict:
     model_names = list_model_names(directory)
     results = {}
     for model in model_names:
@@ -84,7 +87,7 @@ async def evaluation(directory):
 
     return results
 
-def plot_model_comparison(df, column_names, type="line"):
+def plot_model_comparison(df, column_names, type="line") -> None:
     """
     Plots a comparison of all models based on a specified column.
 
@@ -107,14 +110,18 @@ def plot_model_comparison(df, column_names, type="line"):
         st.line_chart(model_data)
     if type=="bar":
         st.bar_chart(model_data)
+    return None
 
-def create_random_dir (base_path="./"):
+def create_random_dir (base_path="./") -> str:
     dir_name = str(uuid.uuid4())
     dir_path = os.path.join(base_path, dir_name)
     os.makedirs(dir_path, exist_ok=True)
     return dir_path
 
-def plot_dataviz (df, target="None"):
+def create_hashed_df_dir (a_df, base_path) -> str:
+    return dir_path
+
+def plot_dataviz (df, target="None") -> None:
     target_col=""
     if target=="None":
         target_col = df.columns[-1]
@@ -124,7 +131,10 @@ def plot_dataviz (df, target="None"):
         st.write("Incorrect column name was give for ploting dataviz")
         return None
 
-    plot_path = create_random_dir(base_path="plots/")
+    # hash df and check if dir exists
+
+    plot_path = create_hashed_df_dir(base_path="plots/")
+
     AV = AutoViz_Class()
     AV.AutoViz(
         filename='',
