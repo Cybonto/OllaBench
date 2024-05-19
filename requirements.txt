@@ -1,3 +1,6 @@
+-U pip
+hmac
+re
 hashlib
 json
 csv
