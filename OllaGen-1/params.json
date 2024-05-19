@@ -1,9 +1,9 @@
 {
-    "node_path": "../OllaGen-1/Cybonto-Gen1- Nodes.csv",
-    "edge_path": "../OllaGen-1/Cybonto-Gen1- Edges.csv",
-    "dict_path": "../OllaGen-1/Cybonto-Gen1-PromptTemplate.csv",
+    "node_path": "OllaGen-1/Cybonto-Gen1- Nodes.csv",
+    "edge_path": "OllaGen-1/Cybonto-Gen1- Edges.csv",
+    "dict_path": "OllaGen-1/Cybonto-Gen1-PromptTemplate.csv",
     "llm_framework": "ollama",
     "QA_questions": 10000,
-    "QA_core_outpath": "OllaGen1-QA-core.csv",
-    "QA_full_outpath": "OllaGen1-QA-full.csv"
+    "QA_core_outpath": "OllaGen-1/OllaGen1-QA-core.csv",
+    "QA_full_outpath": "OllaGen-1/OllaGen1-QA-full.csv"
 }

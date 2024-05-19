@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 import csv
 import json
 
-params_path="params.json"
+params_path="OllaGen-1/params.json"
 params={}
 # Read the parameters from the JSON file
 try:
@@ -136,248 +136,248 @@ def pop_a_sentence(a_construct_name):
     match a_construct_name:
         case "affect_com":
             if len(affect_com)<=1:
-                affect_com.extend(textlines_2_list("./templates/OllaGen_Affect_com.csv"))
+                affect_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Affect_com.csv"))
                 print ("Reloading affect_com entries")
             rand_i = random.randrange(len(affect_com))
             sentence = str(affect_com.pop(rand_i))
             return sentence
         case "affect_noncom":
             if len(affect_noncom)<=1:
-                affect_noncom.extend(textlines_2_list("./templates/OllaGen_Affect_noncom.csv"))
+                affect_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Affect_noncom.csv"))
             rand_i = random.randrange(len(affect_noncom))
             sentence = affect_noncom.pop(rand_i)
             return sentence
         case "attitude_com":
             if len(attitude_com)<=1:
-                attitude_com.extend(textlines_2_list("./templates/OllaGen_Attitude_com.csv"))
+                attitude_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Attitude_com.csv"))
             rand_i = random.randrange(len(attitude_com))
             sentence = attitude_com.pop(rand_i)
             return sentence
         case "attitude_noncom":
             if len(attitude_noncom)<=1:
-                attitude_noncom.extend(textlines_2_list("./templates/OllaGen_Attitude_noncom.csv"))
+                attitude_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Attitude_noncom.csv"))
             rand_i = random.randrange(len(attitude_noncom))
             sentence = attitude_noncom.pop(rand_i)
             return sentence
         case "belief_com":
             if len(belief_com)<=1:
-                belief_com.extend(textlines_2_list("./templates/OllaGen_Belief_com.csv"))
+                belief_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Belief_com.csv"))
             rand_i = random.randrange(len(belief_com))
             sentence = belief_com.pop(rand_i)
             return sentence
         case "belief_noncom":
             if len(belief_noncom)<=1:
-                belief_noncom.extend(textlines_2_list("./templates/OllaGen_Belief_noncom.csv"))
+                belief_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Belief_noncom.csv"))
             rand_i = random.randrange(len(belief_noncom))
             sentence = belief_noncom.pop(rand_i)
             return sentence
         case "benefits_com":
             if len(benefits_com)<=1:
-                benefits_com.extend(textlines_2_list("./templates/OllaGen_Benefits_com.csv"))
+                benefits_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Benefits_com.csv"))
             rand_i = random.randrange(len(benefits_com))
             sentence = benefits_com.pop(rand_i)
             return sentence
         case "benefits_noncom":
             if len(benefits_noncom)<=1:
-                benefits_noncom.extend(textlines_2_list("./templates/OllaGen_Benefits_noncom.csv"))
+                benefits_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Benefits_noncom.csv"))
             rand_i = random.randrange(len(benefits_noncom))
             sentence = benefits_noncom.pop(rand_i)
             return sentence
         case "commitment_com":
             if len(commitment_com)<=1:
-                commitment_com.extend(textlines_2_list("./templates/OllaGen_Commitment_com.csv"))
+                commitment_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Commitment_com.csv"))
             rand_i = random.randrange(len(commitment_com))
             sentence = commitment_com.pop(rand_i)
             return sentence
         case "commitment_noncom":
             if len(commitment_noncom)<=1:
-                commitment_noncom.extend(textlines_2_list("./templates/OllaGen_Commitment_noncom.csv"))
+                commitment_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Commitment_noncom.csv"))
             rand_i = random.randrange(len(commitment_noncom))
             sentence = commitment_noncom.pop(rand_i)
             return sentence
         case "control_com":
             if len(control_com)<=1:
-                control_com.extend(textlines_2_list("./templates/OllaGen_Control_com.csv"))
+                control_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Control_com.csv"))
             rand_i = random.randrange(len(control_com))
             sentence = control_com.pop(rand_i)
             return sentence
         case "control_noncom":
             if len(control_noncom)<=1:
-                control_noncom.extend(textlines_2_list("./templates/OllaGen_Control_noncom.csv"))
+                control_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Control_noncom.csv"))
             rand_i = random.randrange(len(control_noncom))
             sentence = control_noncom.pop(rand_i)
             return sentence
         case "costs_com":
             if len(costs_com)<=1:
-                costs_com.extend(textlines_2_list("./templates/OllaGen_Costs_com.csv"))
+                costs_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Costs_com.csv"))
             rand_i = random.randrange(len(costs_com))
             sentence = costs_com.pop(rand_i)
             return sentence
         case "costs_noncom":
             if len(costs_noncom)<=1:
-                costs_noncom.extend(textlines_2_list("./templates/OllaGen_Costs_noncom.csv"))
+                costs_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Costs_noncom.csv"))
             rand_i = random.randrange(len(costs_noncom))
             sentence = costs_noncom.pop(rand_i)
             return sentence
         case "goal_com":
             if len(goal_com)<=1:
-                goal_com.extend(textlines_2_list("./templates/OllaGen_Goal_com.csv"))
+                goal_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Goal_com.csv"))
             rand_i = random.randrange(len(goal_com))
             sentence = goal_com.pop(rand_i)
             return sentence
         case "goal_noncom":
             if len(goal_noncom)<=1:
-                goal_noncom.extend(textlines_2_list("./templates/OllaGen_Goal_noncom.csv"))
+                goal_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Goal_noncom.csv"))
             rand_i = random.randrange(len(goal_noncom))
             sentence = goal_noncom.pop(rand_i)
             return sentence
         case "groupnorms_com":
             if len(groupnorms_com)<=1:
-                groupnorms_com.extend(textlines_2_list("./templates/OllaGen_Groupnorms_com.csv"))
+                groupnorms_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Groupnorms_com.csv"))
             rand_i = random.randrange(len(groupnorms_com))
             sentence = groupnorms_com.pop(rand_i)
             return sentence
         case "groupnorms_noncom":
             if len(groupnorms_noncom)<=1:
-                groupnorms_noncom.extend(textlines_2_list("./templates/OllaGen_Groupnorms_noncom.csv"))
+                groupnorms_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Groupnorms_noncom.csv"))
             rand_i = random.randrange(len(groupnorms_noncom))
             sentence = groupnorms_noncom.pop(rand_i)
             return sentence
         case "intent_com":
             if len(intent_com)<=1:
-                intent_com.extend(textlines_2_list("./templates/OllaGen_Intent_com.csv"))
+                intent_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Intent_com.csv"))
             rand_i = random.randrange(len(intent_com))
             sentence = intent_com.pop(rand_i)
             return sentence
         case "intent_noncom":
             if len(intent_noncom)<=1:
-                intent_noncom.extend(textlines_2_list("./templates/OllaGen_Intent_noncom.csv"))
+                intent_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Intent_noncom.csv"))
             rand_i = random.randrange(len(intent_noncom))
             sentence = intent_noncom.pop(rand_i)
             return sentence
         case "knowledge_com":
             if len(knowledge_com)<=1:
-                knowledge_com.extend(textlines_2_list("./templates/OllaGen_Knowledge_com.csv"))
+                knowledge_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Knowledge_com.csv"))
             rand_i = random.randrange(len(knowledge_com))
             sentence = knowledge_com.pop(rand_i)
             return sentence
         case "knowledge_noncom":
             if len(knowledge_noncom)<=1:
-                knowledge_noncom.extend(textlines_2_list("./templates/OllaGen_Knowledge_noncom.csv"))
+                knowledge_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Knowledge_noncom.csv"))
             rand_i = random.randrange(len(knowledge_noncom))
             sentence = knowledge_noncom.pop(rand_i)
             return sentence
         case "moral_com":
             if len(moral_com)<=1:
-                moral_com.extend(textlines_2_list("./templates/OllaGen_Moral_com.csv"))
+                moral_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Moral_com.csv"))
             rand_i = random.randrange(len(moral_com))
             sentence = moral_com.pop(rand_i)
             return sentence
         case "moral_noncom":
             if len(moral_noncom)<=1:
-                moral_noncom.extend(textlines_2_list("./templates/OllaGen_Moral_noncom.csv"))
+                moral_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Moral_noncom.csv"))
             rand_i = random.randrange(len(moral_noncom))
             sentence = moral_noncom.pop(rand_i)
             return sentence
         case "motivation_com":
             if len(motivation_com)<=1:
-                motivation_com.extend(textlines_2_list("./templates/OllaGen_Motivation_com.csv"))
+                motivation_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Motivation_com.csv"))
             rand_i = random.randrange(len(motivation_com))
             sentence = motivation_com.pop(rand_i)
             return sentence
         case "motivation_noncom":
             if len(motivation_noncom)<=1:
-                motivation_noncom.extend(textlines_2_list("./templates/OllaGen_Motivation_noncom.csv"))
+                motivation_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Motivation_noncom.csv"))
             rand_i = random.randrange(len(motivation_noncom))
             sentence = motivation_noncom.pop(rand_i)
             return sentence
         case "norms_com":
             if len(norms_com)<=1:
-                norms_com.extend(textlines_2_list("./templates/OllaGen_Norms_com.csv"))
+                norms_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Norms_com.csv"))
             rand_i = random.randrange(len(norms_com))
             sentence = norms_com.pop(rand_i)
             return sentence
         case "norms_noncom":
             if len(norms_noncom)<=1:
-                norms_noncom.extend(textlines_2_list("./templates/OllaGen_Norms_noncom.csv"))
+                norms_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Norms_noncom.csv"))
             rand_i = random.randrange(len(norms_noncom))
             sentence = norms_noncom.pop(rand_i)
             return sentence
         case "responseefficacy_com" | "response-efficacy_com":
             if len(responseefficacy_com)<=1:
-                responseefficacy_com.extend(textlines_2_list("./templates/OllaGen_ResponseEfficacy_com.csv"))
+                responseefficacy_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_ResponseEfficacy_com.csv"))
             rand_i = random.randrange(len(responseefficacy_com))
             sentence = responseefficacy_com.pop(rand_i)
             return sentence
         case "responseefficacy_noncom"| "response-efficacy_noncom":
             if len(responseefficacy_noncom)<=1:
-                responseefficacy_noncom.extend(textlines_2_list("./templates/OllaGen_ResponseEfficacy_noncom.csv"))
+                responseefficacy_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_ResponseEfficacy_noncom.csv"))
             rand_i = random.randrange(len(responseefficacy_noncom))
             sentence = responseefficacy_noncom.pop(rand_i)
             return sentence
         case "sbjnorm_com" | "subjectivenorms_com":
             if len(sbjnorm_com)<=1:
-                sbjnorm_com.extend(textlines_2_list("./templates/OllaGen_SbjNorm_com.csv"))
+                sbjnorm_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_SbjNorm_com.csv"))
             rand_i = random.randrange(len(sbjnorm_com))
             sentence = sbjnorm_com.pop(rand_i)
             return sentence
         case "sbjnorm_noncom" | "subjectivenorms_noncom":
             if len(sbjnorm_noncom)<=1:
-                sbjnorm_noncom.extend(textlines_2_list("./templates/OllaGen_SbjNorm_noncom.csv"))
+                sbjnorm_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_SbjNorm_noncom.csv"))
             rand_i = random.randrange(len(sbjnorm_noncom))
             sentence = sbjnorm_noncom.pop(rand_i)
             return sentence
         case "selfefficacy_com" | "self-efficacy_com":
             if len(selfefficacy_com)<=1:
-                selfefficacy_com.extend(textlines_2_list("./templates/OllaGen_SelfEfficacy_com.csv"))
+                selfefficacy_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_SelfEfficacy_com.csv"))
             rand_i = random.randrange(len(selfefficacy_com))
             sentence = selfefficacy_com.pop(rand_i)
             return sentence
         case "selfefficacy_noncom" | "self-efficacy_noncom":
             if len(selfefficacy_noncom)<=1:
-                selfefficacy_noncom.extend(textlines_2_list("./templates/OllaGen_SelfEfficacy_noncom.csv"))
+                selfefficacy_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_SelfEfficacy_noncom.csv"))
             rand_i = random.randrange(len(selfefficacy_noncom))
             sentence = selfefficacy_noncom.pop(rand_i)
             return sentence
         case "social_com":
             if len(social_com)<=1:
-                social_com.extend(textlines_2_list("./templates/OllaGen_Social_com.csv"))
+                social_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Social_com.csv"))
             rand_i = random.randrange(len(social_com))
             sentence = social_com.pop(rand_i)
             return sentence
         case "social_noncom":
             if len(social_noncom)<=1:
-                social_noncom.extend(textlines_2_list("./templates/OllaGen_Social_noncom.csv"))
+                social_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Social_noncom.csv"))
             rand_i = random.randrange(len(social_noncom))
             sentence = social_noncom.pop(rand_i)
             return sentence
         case "threatseverity_com" | "threat-severity_com":
             if len(threatseverity_com)<=1:
-                threatseverity_com .extend(textlines_2_list("./templates/OllaGen_ThreatSeverity_com.csv"))
+                threatseverity_com .extend(textlines_2_list("OllaGen-1/templates/OllaGen_ThreatSeverity_com.csv"))
             rand_i = random.randrange(len(threatseverity_com))
             sentence = threatseverity_com.pop(rand_i)
             return sentence
         case "threatseverity_noncom" | "threat-severity_noncom":
             if len(threatseverity_noncom)<=1:
-                threatseverity_noncom.extend(textlines_2_list("./templates/OllaGen_ThreatSeverity_noncom.csv"))
+                threatseverity_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_ThreatSeverity_noncom.csv"))
             rand_i = random.randrange(len(threatseverity_noncom))
             sentence = threatseverity_noncom.pop(rand_i)
             return sentence
         case "vulnerability_com":
             if len(vulnerability_com)<=1:
-                vulnerability_com.extend(textlines_2_list("./templates/OllaGen_Vulnerability_com.csv"))
+                vulnerability_com.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Vulnerability_com.csv"))
             rand_i = random.randrange(len(vulnerability_com))
             sentence = vulnerability_com.pop(rand_i)
             return sentence
         case "vulnerability_noncom":
             if len(vulnerability_noncom)<=1:
-                vulnerability_noncom.extend(textlines_2_list("./templates/OllaGen_Vulnerability_noncom.csv"))
+                vulnerability_noncom.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Vulnerability_noncom.csv"))
             rand_i = random.randrange(len(vulnerability_noncom))
             sentence = vulnerability_noncom.pop(rand_i)
             return sentence
         case "names":
             if len(names)<=1:
-                names.extend(textlines_2_list("./templates/OllaGen_Names.csv"))
+                names.extend(textlines_2_list("OllaGen-1/templates/OllaGen_Names.csv"))
             rand_i = random.randrange(len(names))
             sentence = names.pop(rand_i)
             return sentence

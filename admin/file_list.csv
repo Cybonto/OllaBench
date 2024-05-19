@@ -1,11 +1,14 @@
 category,file path,admin reviewed
 Admin,admin/file_list.csv,0
-Knowledge,OllaGen-1/Cybonto-Gen1- Edges.csv,0
-Knowledge,OllaGen-1/Cybonto-Gen1- Nodes.csv,0
-Knowledge,OllaGen-1/Cybonto-Gen1-PromptTemplate.csv,0
-OllaGen1,OllaGen-1/OllaGen1-QA-core.csv,0
-OllaGen1,OllaGen-1/OllaGen1-QA-full.csv,0
-OllaGen1,OllaGen-1/OllaGen1.py,0
-OllaGen1,OllaGen-1/params.json,0
-OllaBench1,OllaBench1.py,0
-OllaBench1,params.json,0
+OllaBench1,OllaBench1_gui.py,0
+OllaBench1,OllaBench1_gui_menu.py,0
+OllaBench1,pages/OllaBench1_gui_health_check.py,0
+OllaBench1,pages/OllaBench1_gui_generate_dataset.py,0
+OllaBench1,pages/OllaBench1_gui_generate_responses.py,0
+OllaBench1,pages/OllaBench1_gui_evaluate.py,0
+Knowledge,pages/Cybonto-Gen1- Edges.csv,0
+Knowledge,pages/Cybonto-Gen1- Nodes.csv,0
+Knowledge,pages/Cybonto-Gen1-PromptSeeds.csv,0
+Knowledge,pages/Cybonto-Gen1-PromptTemplate.csv,0
+OllaGen1,pages/OllaGen1.py,0
+OllaGen1,pages/OllaGen1.json,0

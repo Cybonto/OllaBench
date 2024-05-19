@@ -10,6 +10,17 @@ from autoviz import AutoViz_Class
 
 from OllaBench_gui_menu import menu_with_redirect, show_header
 
+st.set_page_config(
+    page_title="Evaluate Models",
+    initial_sidebar_state="expanded"
+)
+
+show_header()
+menu_with_redirect()
+if not st.session_state.healthcheck_passed:
+    st.warning("System health checking is not passed or not performed. Please run health check.")
+    st.stop()
+    
 columns_of_interest = [
     'ID', 'Model', 'WCP_TotalDuration', 'WCP_EvalCounts', 'WCP_score',
     'WHO_TotalDuration', 'WHO_EvalCounts', 'WHO_score',
@@ -105,7 +116,7 @@ def plot_model_comparison(df, column_names, type="line") -> None:
 
     # Extract the relevant data
     model_data = df[column_names]
-    st.write(f'Comparison of {column_names} Across Models')
+    st.markdown(f'**Comparison of {column_names} Across Models**')
     if type=="line":
         st.line_chart(model_data)
     if type=="bar":
@@ -152,8 +163,6 @@ def plot_dataviz (df, target="None") -> None:
     return None
 
 # Main Streamlit app starts here
-show_header()
-menu_with_redirect()
 
 # Verify the user's role
 if st.session_state.role not in ["admin", "user"]:
@@ -167,37 +176,56 @@ with col3:
     st.write(" ")
 with col2:
     st.title("Evaluate Models' Responses")
-if not st.session_state.healthcheck_passed:
-    st.warning("System health checking is not passed or not performed. Please run health check.")
-    st.stop()
     
 #st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
 waiting_wheel = st.empty()
 with waiting_wheel.container():
     st.spinner('Please wait...')
 
-response_path = "Responses/"
+if st.session_state.llm_endpoints == "demo":
+    response_path = "Responses/" #demo mode reads the responses that I collected
+else:
+    response_path = "pages/esponses/" # read the responses that user collected
 models = list_model_names(response_path)
 st.session_state.total_models = len(models)
 results = asyncio.run(evaluation(response_path))
 result_df = pd.DataFrame(results)
 result_dfT = result_df.T
 
-st.subheader("Performance Metrics")
-st.write(result_dfT)
-
-st.subheader("Consistency Metrics")
-#tba
-
 st.subheader("Comparision Charts")
 plot_model_comparison(result_dfT, ['Avg WCP score','Avg WHO score','Avg Team Risk score','Avg Target Factor score'])
-#plot_model_comparison(result_dfT, 'Avg WHO score')
-#plot_model_comparison(result_dfT, 'Avg Team Risk score')
-#plot_model_comparison(result_dfT, 'Avg Target Factor score')
-plot_model_comparison(result_dfT, ['Avg Score'], type="bar")
-plot_model_comparison(result_dfT, ['Wasted Average'], type="bar")
+with st.expander("Metric Explaination:"):
+    st.markdown('''
+                **A Scenario** was generated based on a peer-reviewed knowledge network of cognitive behavioral constructs for cybersecurity (the nodes) and the relationships among them (the edges). Examples of cognitive behavioral constructs include Belief, Norm, Goal, etc. There are 10,000 scenarios in the default benchmark dataset. A scenario consists of two employees (A and B). Each employee has a short description of their cognitive behavioral profile containing natural language description of conitive behavioral construct paths (a collection of nodes and edges).
 
-st.subheader("Data Analysis")
+                **Which Cognitive Path** question presents four options of conitive behavioral construct paths and asks the model to select the (only) correct option that fits the cognitive behavioral profile of either employees. The Avg WCP score is the average score across a model's answers each of which receives 1 if correct and 0 otherwise.
+
+                **Who is Who** question asks the model to decide who is MORE/LESS compliant with information security policies based on the stated cognitive behavioral profiles. The Avg WHO score is the average score across a model's answers each of which receives 1 if correct and 0 otherwise.
+
+                **Team Risk Analysis** question asks the model to assess whether the risk of information security noncompliant will increase if the two employees work closely together in the same team. The Avg Team Risk score is the average score across a model's answers each of which receives 1 if correct and 0 otherwise.
+
+                **Target Factor Analysis** question asks the model to identify the best cognitive behavioral construct to be targeted for strengthening so that the overall information cybersecurity compliance posture of the two employees can increase. The Avg Target Factor score is the average score across a model's answers each of which receives 1 if correct and 0 otherwise.
+    ''')
+
+plot_model_comparison(result_dfT, ['Avg Score'], type="bar")
+with st.expander("Explaination of the Average score:"):
+    st.write('''
+        **The Average score** is the average of each model's 'Avg WCP score','Avg WHO score','Avg Team Risk score','Avg Target Factor score'. The model with the highest Average score could be the best performing model. However, it may not be the case with the most efficient model which is a combination of many factors including performance metrics and wasted response metric. 
+    ''')
+
+plot_model_comparison(result_dfT, ['Wasted Average'], type="bar")
+with st.expander("Explaination of the Wasted Average score:"):
+    st.write('''
+        **Wasted Response** for each response is measured by the response's tokens and the response evaluation of being incorrect. The Wasted Average score is calculated by the total wasted tokens divided by the number of wrong responses. Further resource costs interms of time and/or money can be derived from the total wasted response value. The model with the lowest Wasted Average score can be the most efficient model (to be decided in joint consideration with other metrics).
+    ''')
+
+st.subheader("Detailed Performance Metrics")
+st.write(result_dfT)
+
+#st.subheader("Consistency Metrics")
+#tba
+
+#st.subheader("Data Analysis")
 #tba
 
 if len(result_dfT)>0:

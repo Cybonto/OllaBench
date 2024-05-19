@@ -9,14 +9,14 @@ def show_header():
     return None
     
 def logout():
-    try:
-        del st.session_state.password_correct
-        del st.session_state.password
-        del st.session_state.username
-        del st.session_state.role
-        del st.session_state.healthcheck_passed
-    except:
-        pass
+    st.session_state.password_correct = False
+    st.session_state.password = None
+    st.session_state.password = None
+    st.session_state.role = None
+    st.session_state.llm_endpoints = " "
+    st.session_state.healthcheck_passed = False
+    st.session_state.selected_llm = "None"
+    st.session_state.llm_list = "None"
     st.switch_page("OllaBench1_gui.py")
     return 
 
@@ -24,7 +24,7 @@ def authenticated_menu():
     # Show a navigation menu for authenticated users
     st.sidebar.page_link("OllaBench1_gui.py", label="Home")
     if st.session_state.role in ["admin", "user"]:
-        st.sidebar.page_link("pages/OllaBench_gui_about.py", label=":blush: About OllaBench")
+        st.sidebar.page_link("pages/OllaBench_gui_about.py", label=":blush: Understanding OllaBench")
         st.sidebar.page_link("pages/OllaBench_gui_health_check.py", label=":mag: Health Check")
         st.sidebar.page_link("pages/OllaBench_gui_generate_dataset.py", label=":arrows_counterclockwise: Generate Dataset")
         st.sidebar.page_link("pages/OllaBench_gui_generate_responses.py", label=":inbox_tray: Generate Responses")
@@ -56,6 +56,8 @@ def menu():
 def menu_with_redirect():
     # Redirect users to the main page if not logged in, otherwise continue to
     # render the navigation menu
+    if "role" not in st.session_state or st.session_state.role is None:
+        st.switch_page("OllaBench1_gui.py")
     if "role" not in st.session_state or st.session_state.role is None:
         st.switch_page("OllaBench1_gui.py")
     menu()

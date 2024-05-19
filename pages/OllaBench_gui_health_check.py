@@ -1,11 +1,23 @@
 import os
+import re
 import hashlib
 import json
 from datetime import datetime
 import csv
 import streamlit as st
+import ollama
+from ollama import Client
 from OllaBench_gui_menu import menu_with_redirect, show_header
 
+st.set_page_config(
+    page_title="Health Check",
+    initial_sidebar_state="expanded"
+)
+
+if "llm_endpoints" not in st.session_state:
+    st.session_state.llm_endpoints = " "
+if "llm_list" not in st.session_state:
+    st.session_state.llm_list = "None"
 
 # Functions
 
@@ -91,8 +103,76 @@ def load_and_filter_results(json_file_path, reviewed_status='0'):
         st.write(f"An error occurred: {e}")
     return filtered_results
 
-# Retrieve the role from Session State to initialize the widget
-st.session_state._role = st.session_state.role
+def is_valid_url(url: str) -> bool:
+    # Regular expression to validate URL
+    regex = re.compile(
+        r'^(?:http|ftp)s?://'  # http:// or https:// or ftp:// or ftps://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  # domain...
+        r'localhost|'  # localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|'  # ...or ipv4
+        r'\[?[A-F0-9]*:[A-F0-9:]+\]?)'  # ...or ipv6
+        r'(?::\d+)?'  # optional port
+        r'(?:/?|[/?]\S+)$', re.IGNORECASE)
+    
+    return re.match(regex, url) is not None
+
+def test_model(tries,a_model):
+    """
+    A function to check for bad LLM models.
+    
+    Parameters:
+    tries: the number of failed attempts before reporting
+    llm_models: a list of targeted LLM models
+    
+    Returns:
+    True if the model is good
+    """
+    print(f"Test loading of {a_model}")
+    if "demo" in a_model:
+        return True
+    else:
+        while tries>0:
+            try:
+                response = get_response(llm_framework,a_model,'just say yes')
+                return True
+            except Exception as e:
+                tries-=1
+                response = str(e) #"error" wil be in response
+        if "error" in response:
+            print(f"The model {a_model} is bad.")
+    return False 
+
+def set_llm_endpoint () -> list:
+    container = st.empty()
+    container.empty()
+    llm_list="None"
+    with container.container():
+        st.session_state.llm_endpoints = st.text_input(
+            "Ollama endpoint:",
+            "http://<url>:<port number>"
+        )
+
+        if is_valid_url(st.session_state.llm_endpoints) or (st.session_state.llm_endpoints == "demo") :
+            client = Client(host=st.session_state.llm_endpoints)
+            # Get model list for evaluation
+            if st.session_state.llm_endpoints == "demo":
+                llm_list = ["Arctic demo", "demo:7b-q4_0", "demo:7b-q8_0"]
+            else:
+                try:
+                    llm_list = [d[next(iter(d))] for d in ollama.list()['models']] #get model names from the list of dict returned by Ollama
+                except:
+                    st.error('Cannot connect to the Ollama endpoint. Try another one?', icon="🚨")
+    return llm_list
+
+def check_llm_model (a_list) -> bool:
+    for model in a_list:
+        if "demo" in model:
+            check_passed=True
+        else:
+            check_passed = test_model(3,model)
+        if not check_passed:
+            return False
+    return True
 
 # Main Streamlit app starts here
 show_header()
@@ -114,11 +194,27 @@ with col2:
     csv_file_path = "admin/file_list.csv"
     check_results_path = "admin/health_checks.csv"
     data = read_data_from_csv(csv_file_path)
-    results = check_files_integrity(data, json_file_path=check_results_path)
+    results = check_files_integrity(data, check_results_path)
     nonreviewed_changes=load_and_filter_results(check_results_path, reviewed_status='0')
-    if len(results)==0 and len(nonreviewed_changes)==0: #will add more health check criteria in later versions
-        st.session_state.healthcheck_passed = True
-        st.write(":heavy_check_mark: Systems are healthy.")
+    if len(results)==0 and len(nonreviewed_changes)==0:
+        st.write("Systems retains integrity :heavy_check_mark: ")
+        llm_list = set_llm_endpoint ()
+        if llm_list != "None":
+            next=False
+            if check_llm_model (llm_list):
+                st.session_state.healthcheck_passed = True
+                st.write("All models are healthy :heavy_check_mark: ")
+                st.session_state.llm_list = llm_list
+                next = st.button("Generate Benchmark Dataset")
+                if next:
+                    st.switch_page("pages/OllaBench_gui_generate_dataset.py")
+
+            else:
+                st.session_state.healthcheck_passed = False
+                st.write(":octagonal_sign: Models are not healthy.")
+        else:
+            st.session_state.healthcheck_passed = False
+            st.write(":octagonal_sign: Cannot get a list of LLM models.")
     else:
         st.write(":octagonal_sign: Systems are not healthy.")
         if st.session_state.role == "admin":
@@ -126,3 +222,4 @@ with col2:
             st.write(results)
             st.write("Detected non-reviewed changes:")
             st.write(nonreviewed_changes)
+    

@@ -100,15 +100,18 @@ def test_model(tries,a_model):
     True if the model is good
     """
     print(f"Test loading of {a_model}")
-    while tries>0:
-        try:
-            response = get_response(llm_framework,a_model,'just say yes')
-            return True
-        except Exception as e:
-            tries-=1
-            response = str(e) #"error" wil be in response
-    if "error" in response:
-        print(f"The model {a_model} is bad.")
+    if "demo" in a_model:
+        return True
+    else:
+        while tries>0:
+            try:
+                response = get_response(llm_framework,a_model,'just say yes')
+                return True
+            except Exception as e:
+                tries-=1
+                response = str(e) #"error" wil be in response
+        if "error" in response:
+            print(f"The model {a_model} is bad.")
     return False 
 
 def check_answer (reference, answer):
