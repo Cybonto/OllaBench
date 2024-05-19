@@ -1,4 +1,5 @@
 import os
+import time
 import re
 import hashlib
 import json
@@ -116,6 +117,13 @@ def is_valid_url(url: str) -> bool:
     
     return re.match(regex, url) is not None
 
+def get_response(llm_framework,a_model,a_prompt):
+    if llm_framework =="ollama":
+        result = ollama.generate(model=a_model, prompt= a_prompt, stream=False)
+        while "eval_duration" not in result:
+            time.sleep(1)
+    return result
+
 def test_model(tries,a_model):
     """
     A function to check for bad LLM models.
@@ -133,7 +141,7 @@ def test_model(tries,a_model):
     else:
         while tries>0:
             try:
-                response = get_response(llm_framework,a_model,'just say yes')
+                response = get_response("ollama",a_model,'just say yes')
                 return True
             except Exception as e:
                 tries-=1
