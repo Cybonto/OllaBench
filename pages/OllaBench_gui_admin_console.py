@@ -30,6 +30,7 @@ data = load_json(json_file_path)
 st.title("Admin Console")
 st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
 
+st.write(data)
 # Select entry to update
 entry_index = st.selectbox("Select entry to update", range(len(data)), format_func=lambda x: data[x]['name'])
 
