@@ -205,7 +205,7 @@ if st.session_state.selected_llm != "None":
     if confirmed_setting:
         container.empty()
         with st.spinner("Generating description of behavioral constructs' libraries, please wait..."):
-            if "demo" in ollama_evaluating_model:
+            if "demo" in st.session_state.selected_llm:
                 st.write("Behavioral constructs' description libraries generated :heavy_check_mark: ")
             else:
                 for flag in flag_list:
