@@ -8,3 +8,4 @@ argparse
 asyncio
 aiofiles
 autoviz
+ipython
