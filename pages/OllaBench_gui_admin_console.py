@@ -27,28 +27,20 @@ data = load_json(json_file_path)
 st.title("Admin Console")
 st.markdown(f"You are currently logged with the role of {st.session_state.role}.")
 
-st.write(data)
-# Select entry to update
-entry_index = st.selectbox("Select entry to update", range(len(data)), format_func=lambda x: data[x]['file_path'])
+# Filter entries with admin_reviewed = 0
+unreviewed_entries = [entry for entry in data if entry['admin_reviewed'] == "0"]
 
-# Display the form for the selected entry
-with st.form(key='json_form'):
-    category = data[entry_index]['category']
-    st.write(category)
-    file_path = data[entry_index]['file_path']
-    admin_reviewed = st.text_input("Admin reviewed", value=data[entry_index]['admin reviewed'])
-
-    submit_button = st.form_submit_button(label='Update JSON')
-
-# Update JSON data on form submission
-if submit_button:
-    data[entry_index]['category'] = category
-    data[entry_index]['file path'] = file_path
-    data[entry_index]['admin reviewed'] = admin_reviewed
+# Display unreviewed entries
+if unreviewed_entries:
+    st.write("Unreviewed Entries:")
+    for i, entry in enumerate(unreviewed_entries):
+        st.json(entry)
+        if st.button(f"Approve {i}", key=f"approve_{i}"):
+            # Update the admin_reviewed value to 1
+            entry['admin_reviewed'] = "1"
+            st.success(f"Entry {i} approved!")
 
     # Save the updated data to the file
     save_json(data, json_file_path)
-    st.success("JSON file updated successfully!")
-
-    # Display the updated data
-    st.json(data)
+else:
+    st.write("No unreviewed entries found.")
