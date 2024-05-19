@@ -1,5 +1,4 @@
 ollama
-csv
 pandas
 shutil
 openai
