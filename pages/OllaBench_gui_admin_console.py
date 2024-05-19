@@ -2,9 +2,6 @@ import streamlit as st
 import json
 from OllaBench_gui_menu import menu_with_redirect
 
-# Retrieve the role from Session State to initialize the widget
-st.session_state._role = st.session_state.role
-
 menu_with_redirect()
 
 # Verify the user's role
