@@ -5,3 +5,6 @@ networkx
 matplotlib
 nltk
 argparse
+asyncio
+aiofiles
+autoviz
