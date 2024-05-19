@@ -171,7 +171,7 @@ next = False
 if st.session_state.selected_llm == "None":
     select_llm()
 if st.session_state.selected_llm != "None":
-    container.write(f"You selected an evaluating model of {st.session_state.selected_llm}")
+    st.write(f"You selected an evaluating model of {st.session_state.selected_llm}")
     use_default_dataset = container.radio(
         "Do you want to use default benchmark dataset instead of creating a new one?",
         ["Yes. To save time.","No. I want my own benchmark dataset."],
