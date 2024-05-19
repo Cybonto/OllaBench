@@ -202,6 +202,7 @@ with col2:
     csv_file_path = "admin/file_list.csv"
     check_results_path = "admin/health_checks.csv"
     data = read_data_from_csv(csv_file_path)
+    st.write(data)
     results = check_files_integrity(data, check_results_path)
     nonreviewed_changes=load_and_filter_results(check_results_path, reviewed_status='0')
     if len(results)==0 and len(nonreviewed_changes)==0:
