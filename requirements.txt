@@ -2,7 +2,6 @@ ollama
 pandas
 openai
 networkx
-copy
 matplotlib
 nltk
 argparse
