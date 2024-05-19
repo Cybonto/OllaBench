@@ -1,6 +1,5 @@
 ollama
 pandas
-shutil
 openai
 networkx
 contextlib
