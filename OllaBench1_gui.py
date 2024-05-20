@@ -79,15 +79,15 @@ st.markdown('''
 
             Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors. The main goal is to help with identifying the right LLM in the early phase of developing an LLM-based application.</div>
             ''',unsafe_allow_html=True)
-st.write("Introduction Video (90s)")
+st.markdown("**Introduction Video (90s)**")
 col1, col2 = st.columns([0.04,0.9])
 with col1:
     st.write(" ")
 with col2:
     st.video('https://youtu.be/o-uIvInsOMA')
-st.write("Demonstration of use (3mins)")
+st.markdown("**Demonstration of use (3mins)**")
 col1, col2 = st.columns([0.04,0.9])
 with col1:
     st.write(" ")
 with col2:
-    st.video('https://youtu.be/o-uIvInsOMA')
+    st.video('https://youtu.be/aOEGLCnLo1M')
