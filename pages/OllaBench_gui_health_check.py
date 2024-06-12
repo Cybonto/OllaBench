@@ -1,5 +1,6 @@
 import os
 import time
+import random
 import re
 import hashlib
 import json
@@ -8,6 +9,11 @@ import csv
 import streamlit as st
 import ollama
 from ollama import Client
+import openai
+from openai import OpenAI
+import anthropic
+from anthropic import Anthropic
+import google.generativeai as google
 from OllaBench_gui_menu import menu_with_redirect, show_header
 
 st.set_page_config(
@@ -15,10 +21,24 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-if "llm_endpoints" not in st.session_state:
-    st.session_state.llm_endpoints = " "
-if "llm_list" not in st.session_state:
-    st.session_state.llm_list = "None"
+if "ollama_endpoints" not in st.session_state:
+    st.session_state.ollama_endpoints = "None"
+if "evaluator_llm_list" not in st.session_state:
+    st.session_state.evaluator_llm_list = "None"
+if "evaluatee_llm_list" not in st.session_state:
+    st.session_state.evaluatee_llm_list = "None"
+if "use_default_dataset" not in st.session_state:
+    st.session_state.use_default_dataset = "Yes"
+if "evaluator_framework" not in st.session_state:
+    st.session_state.evaluator_framework = "None"
+if "evaluatee_framework" not in st.session_state:
+    st.session_state.evaluatee_framework = "None"
+if "openai_token" not in st.session_state:
+    st.session_state.openai_token = "None"
+if "anthropic_token" not in st.session_state:
+    st.session_state.anthropic_token = "None"
+if "google_token" not in st.session_state:
+    st.session_state.google_token = "None"
 
 # Functions
 
@@ -117,14 +137,14 @@ def is_valid_url(url: str) -> bool:
     
     return re.match(regex, url) is not None
 
-def get_response(llm_framework,a_model,a_prompt):
+def get_ollama_response(llm_framework,a_model,a_prompt):
     if llm_framework =="ollama":
         result = ollama.generate(model=a_model, prompt= a_prompt, stream=False)
         while "eval_duration" not in result:
             time.sleep(1)
     return result
 
-def test_model(tries,a_model):
+def test_ollama_model(tries,a_model):
     """
     A function to check for bad LLM models.
     
@@ -141,7 +161,7 @@ def test_model(tries,a_model):
     else:
         while tries>0:
             try:
-                response = get_response("ollama",a_model,'just say yes')
+                response = get_ollama_response("ollama",a_model,'just say yes')
                 return True
             except Exception as e:
                 tries-=1
@@ -150,34 +170,90 @@ def test_model(tries,a_model):
             print(f"The model {a_model} is bad.")
     return False 
 
-def set_llm_endpoint () -> list:
+def set_llm_endpoint (framework) -> list:
     container = st.empty()
     container.empty()
     llm_list="None"
+    random_integer = random.randint(1, 100)
     with container.container():
-        st.session_state.llm_endpoints = st.text_input(
-            "Ollama endpoint:",
-            "http://<url>:<port number>"
-        )
+        if framework == "ollama":
+            if st.session_state.ollama_endpoints in ["None","http://<url>:<port number>"]:
+                st.session_state.ollama_endpoints = st.text_input(
+                    "Ollama endpoint:",
+                    "http://<url>:<port number>",
+                )
 
-        if is_valid_url(st.session_state.llm_endpoints) or (st.session_state.llm_endpoints == "demo") :
-            client = Client(host=st.session_state.llm_endpoints)
-            # Get model list for evaluation
-            if st.session_state.llm_endpoints == "demo":
-                llm_list = ["Arctic demo", "demo:7b-q4_0", "demo:7b-q8_0"]
-            else:
+            if is_valid_url(st.session_state.ollama_endpoints) or (st.session_state.ollama_endpoints == "demo") :
+                #client = Client(host=st.session_state.ollama_endpoints)
+                # Get model list for evaluation
+                if st.session_state.ollama_endpoints == "demo":
+                    llm_list = ["Arctic demo", "demo:7b-q4_0", "demo:7b-q8_0"]
+                else:
+                    try:
+                        llm_list = [d[next(iter(d))] for d in ollama.list()['models']] #get model names from the list of dict returned by Ollama
+                    except:
+                        st.error('Cannot connect to the Ollama endpoint. Try another one?', icon="🚨")
+        elif framework == "openai":
+            if st.session_state.openai_token == "None":
+                st.session_state.openai_token = st.text_input(
+                    "OpenAI Project Key:",
+                    value="None", type="password"
+                )
+            if st.session_state.openai_token != "None":
+                client = OpenAI(api_key=st.session_state.openai_token)
                 try:
-                    llm_list = [d[next(iter(d))] for d in ollama.list()['models']] #get model names from the list of dict returned by Ollama
+                    models = client.models.list()
+                    llm_list = [model.id for model in models.data]
                 except:
-                    st.error('Cannot connect to the Ollama endpoint. Try another one?', icon="🚨")
+                    st.error('Cannot get model list from OpenAI', icon="🚨")
+        elif framework == "anthropic":
+            if st.session_state.anthropic_token == "None":
+                st.session_state.anthropic_token = st.text_input(
+                    "Anthropic API Key:",
+                    value="None", type="password"
+                )
+            if st.session_state.anthropic_token != "None":
+                try:
+                    anthropic_client = anthropic.Anthropic(api_key=st.session_state.anthropic_token)
+                    message = anthropic_client.messages.create(
+                        model="claude-3-haiku-20240307",
+                        max_tokens=1000,
+                        temperature=0.3,
+                        system="Respond only in Yoda-speak.",
+                        messages=[
+                            {"role": "user", "content": "How are you today?"}
+                        ]
+                    )
+                    llm_list = ["claude-3-opus-20240229","claude-3-sonnet-20240229","claude-3-haiku-20240307"]
+                except:
+                    st.error('Cannot communicate with Anthropic', icon="🚨")
+        elif framework == "google":
+            model_names = []
+            if st.session_state.google_token == "None":
+                st.session_state.google_token = st.text_input(
+                    "Google Project Key:",
+                    value="None", type="password"
+                )
+            if st.session_state.google_token != "None":
+                google.configure(api_key=st.session_state.google_token)
+                try:
+                    for m in google.list_models():
+                        if 'generateContent' in m.supported_generation_methods:
+                            model=m.name
+                            model = model.split("/")[1]
+                            model_names.append(model)
+                except:
+                    st.error('Cannot get model list from Google', icon="🚨")
+                llm_list = model_names
+    
     return llm_list
 
 def check_llm_model (a_list) -> bool:
     for model in a_list:
-        if "demo" in model:
+        if "demo" in model or model in ("openai","anthropic","google"):
             check_passed=True
         else:
-            check_passed = test_model(3,model)
+            check_passed = test_ollama_model(3,model)
         if not check_passed:
             return False
     return True
@@ -204,27 +280,58 @@ with col2:
     data = read_data_from_csv(csv_file_path)
     results = check_files_integrity(data, check_results_path)
     nonreviewed_changes=load_and_filter_results(check_results_path, reviewed_status='0')
-    if len(results)==0 and len(nonreviewed_changes)==0:
-        st.write("Systems retains integrity :heavy_check_mark: ")
-        llm_list = set_llm_endpoint ()
-        if llm_list != "None":
-            next=False
-            if check_llm_model (llm_list):
-                st.session_state.healthcheck_passed = True
-                st.write("All models are healthy :heavy_check_mark: ")
-                st.session_state.llm_list = llm_list
-                next = st.button("Generate Benchmark Dataset")
-                if next:
-                    st.switch_page("pages/OllaBench_gui_generate_dataset.py")
+    if len(results)==0 and len(nonreviewed_changes)==0: # if there is no unexpected change in files
+        st.success('System files retain integrity', icon="✅")
 
-            else:
-                st.session_state.healthcheck_passed = False
-                st.write(":octagonal_sign: Models are not healthy.")
+        # Check EVALUATOR
+        st.session_state.use_default_dataset = st.radio(
+            "Do you want to use default benchmark dataset instead of creating a new one?",
+            ["Yes. To save time.","No. I want my own benchmark dataset."],
+        )
+        evaluator_llm_list = "None"
+        if st.session_state.use_default_dataset == "No. I want my own benchmark dataset.":
+            st.session_state.evaluator_framework = st.radio(
+                "Please select an **evaluator** framework.",
+                ["ollama","openai","anthropic","google"],
+                index=None
+            )
+            if st.session_state.evaluator_framework in ["ollama","openai","anthropic","google"]:
+                evaluator_llm_list = set_llm_endpoint (st.session_state.evaluator_framework)
+        if evaluator_llm_list != "None":
+            st.session_state.evaluator_llm_list = evaluator_llm_list
+            with st.expander("Evaluator endpoint is healthy with access to the following models (click to expand)"):
+                for model_name in st.session_state.evaluator_llm_list:
+                    st.markdown(f"- {model_name}")
         else:
             st.session_state.healthcheck_passed = False
-            st.write(":octagonal_sign: Cannot get a list of LLM models.")
+        
+        # Check EVALUATEE
+        evaluatee_llm_list = "None"
+        st.session_state.evaluatee_framework = st.radio(
+            "Please select an **evaluatee** framework.",
+            ["ollama","openai","anthropic","google"],
+            index=None
+        )
+        if evaluator_llm_list != "None" or "Yes" in st.session_state.use_default_dataset:
+            if st.session_state.evaluatee_framework in ["ollama","openai","anthropic","google"]:
+                evaluatee_llm_list = set_llm_endpoint (st.session_state.evaluatee_framework)
+        if evaluatee_llm_list != "None":
+            st.session_state.evaluatee_llm_list = evaluatee_llm_list
+            with st.expander("Evaluatee endpoint is healthy with access to the following models (click to expand)"):
+                for model_name in st.session_state.evaluatee_llm_list:
+                    st.markdown(f"- {model_name}")
+            st.session_state.healthcheck_passed = True
+        else:
+            st.session_state.healthcheck_passed = False
+        
+        if st.session_state.healthcheck_passed:
+            st.success('All endpoints are healthy', icon="✅")
+            next=False
+            next = st.button("Generate Benchmark Dataset")
+            if next:
+                st.switch_page("pages/OllaBench_gui_generate_dataset.py")
     else:
-        st.write(":octagonal_sign: Systems are not healthy.")
+        st.error(f'Systems are not healthy.', icon="🚨")
         if st.session_state.role == "admin":
             st.write("Detected new changes:")
             st.write(results)

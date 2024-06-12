@@ -6,7 +6,9 @@ from io import StringIO
 import asyncio
 import aiofiles
 import streamlit as st
+import graphviz
 from autoviz import AutoViz_Class
+import semopy as sem
 
 from OllaBench_gui_menu import menu_with_redirect, show_header
 
@@ -98,6 +100,35 @@ async def evaluation(directory: str) -> dict:
 
     return results
 
+async def semcalc(directory: str) -> dict:
+    # Structural equation modeling calculation
+
+    m1 = """
+        # measurement model
+        WCP =~ WCP_score
+        WHO =~ WHO_score
+        TR =~ TeamRisk_score
+        TF =~ TargetFactor_score
+        # regressions
+        TR ~ WCP + WHO
+        TF ~ WCP
+    """
+    semM1 = sem.Model(m1)
+
+    model_names = list_model_names(directory)
+    results = pd.DataFrame()
+    for model in model_names:
+        df = await process_model_files(directory, model)
+        data = df[['WCP_score','WHO_score','TeamRisk_score','TargetFactor_score']]
+        sem_result = semM1.fit(data, obj="MLW")
+        inspect_result = semM1.inspect()
+        df_inspect = pd.DataFrame(inspect_result).head(3)
+        df_inspect.insert(0,"model",model)
+
+        results = pd.concat([results, df_inspect], ignore_index=True)
+
+    return results
+
 def plot_model_comparison(df, column_names, type="line") -> None:
     """
     Plots a comparison of all models based on a specified column.
@@ -182,15 +213,16 @@ waiting_wheel = st.empty()
 with waiting_wheel.container():
     st.spinner('Please wait...')
 
-if st.session_state.llm_endpoints == "demo":
+if st.session_state.ollama_endpoints == "demo":
     response_path = "Responses/" #demo mode reads the responses that I collected
 else:
-    response_path = "pages/esponses/" # read the responses that user collected
+    response_path = "pages/responses/" # read the responses that user collected
 models = list_model_names(response_path)
 st.session_state.total_models = len(models)
 results = asyncio.run(evaluation(response_path))
 result_df = pd.DataFrame(results)
 result_dfT = result_df.T
+sem_results = asyncio.run(semcalc(response_path))
 
 st.subheader("Comparision Charts")
 plot_model_comparison(result_dfT, ['Avg WCP score','Avg WHO score','Avg Team Risk score','Avg Target Factor score'])
@@ -216,14 +248,34 @@ with st.expander("Explaination of the Average score:"):
 plot_model_comparison(result_dfT, ['Wasted Average'], type="bar")
 with st.expander("Explaination of the Wasted Average score:"):
     st.write('''
-        **Wasted Response** for each response is measured by the response's tokens and the response evaluation of being incorrect. The Wasted Average score is calculated by the total wasted tokens divided by the number of wrong responses. Further resource costs interms of time and/or money can be derived from the total wasted response value. The model with the lowest Wasted Average score can be the most efficient model (to be decided in joint consideration with other metrics).
+        **Wasted Response** for each response is measured by the response's tokens and the response evaluation of being incorrect. The Wasted Average score is calculated by the total wasted tokens divided by the number of wrong responses. Further resource costs in terms of time and/or money can be derived from the total wasted response value. The model with the lowest Wasted Average score can be the most efficient model (to be decided in joint consideration with other metrics).
     ''')
 
 st.subheader("Detailed Performance Metrics")
 st.write(result_dfT)
 
-#st.subheader("Consistency Metrics")
-#tba
+columns_to_filter = ['model','Estimate','Std. Err','z-value','p-value']
+columns_to_plot = ['Estimate','Std. Err','p-value']
+
+st.subheader("Consistency between Team-Risk and Which-Cog-Path")
+temp = sem_results[sem_results.apply(lambda row: (row['lval'], row['rval']) in [('TR','WCP')], axis=1)]
+TR_WCP = temp[columns_to_filter]
+TR_WCP.set_index(TR_WCP.columns[0], inplace=True)
+#TR_WCP_plot = TR_WCP[columns_to_plot]
+#st.line_chart(TR_WCP_plot)
+st.write(TR_WCP)
+
+st.subheader("Consistency between Team-Risk and Who-is-Who")
+temp = sem_results[sem_results.apply(lambda row: (row['lval'], row['rval']) in [('TR','WHO')], axis=1)]
+TR_WHO = temp[columns_to_filter]
+TR_WHO.set_index(TR_WHO.columns[0], inplace=True)
+st.write(TR_WHO)
+
+st.subheader("Consistency between Target-Factor and Which-Cog-Path")
+temp = sem_results[sem_results.apply(lambda row: (row['lval'], row['rval']) in [('TF','WCP')], axis=1)]
+TF_WCP = temp[columns_to_filter]
+TF_WCP.set_index(TF_WCP.columns[0], inplace=True)
+st.write(TF_WCP)
 
 #st.subheader("Data Analysis")
 #tba

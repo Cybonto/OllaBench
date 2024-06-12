@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 
 def show_header():
     col1, col2 = st.columns([0.1,0.2])
@@ -9,16 +10,10 @@ def show_header():
     return None
     
 def logout():
-    st.session_state.password_correct = False
-    st.session_state.password = None
-    st.session_state.password = None
-    st.session_state.role = None
-    st.session_state.llm_endpoints = " "
-    st.session_state.healthcheck_passed = False
-    st.session_state.selected_llm = "None"
-    st.session_state.llm_list = "None"
+    for key in st.session_state.keys():
+        del st.session_state[key]
     st.switch_page("OllaBench1_gui.py")
-    return 
+    return None
 
 def authenticated_menu():
     # Show a navigation menu for authenticated users
@@ -61,3 +56,32 @@ def menu_with_redirect():
     if "role" not in st.session_state or st.session_state.role is None:
         st.switch_page("OllaBench1_gui.py")
     menu()
+
+def display_progress(n,current):
+    # Calculate the number of squares
+    num_squares = (n + 49) // 50
+
+    # Initialize progress list with False (grey) indicating incomplete
+    progress = [False] * num_squares
+
+    # Streamlit application
+    progress_placeholder = st.empty()
+
+    # Function to update progress display
+    def update_progress():
+        with progress_placeholder.container():
+            cols = st.columns(40)  # Create 40 columns for a single row
+
+            for i in range(num_squares):
+                col_index = i % 40  # Determine the column index
+                color = "green" if progress[i] else "Gainsboro"
+                cols[col_index].write(
+                    f"<div style='width:10px; height:10px; background-color:{color}; display:inline-block; margin:2px;'></div>",
+                    unsafe_allow_html=True
+                )
+
+    # Main loop to update progress
+    for i in range(current // 50 + 1):
+        if i > 0:
+            progress[i-1] = True
+        update_progress()

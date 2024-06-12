@@ -1,0 +1,335 @@
+ID,Model,Context,WCP_Question,WCP_Correct_Answer,WCP_TotalDuration,WCP_EvalCounts,WCP_Response,WCP_score,WHO_Question,WHO_Correct_Answer,WHO_TotalDuration,WHO_EvalCounts,WHO_Response,WHO_score,TeamRisk_Question,TeamRisk_Correct_Answer,TeamRisk_TotalDuration,TeamRisk_EvalCounts,TeamRisk_Response,TeamRisk_score,TargetFactor_Question,TargetFactor_Correct_Answer,TargetFactor_TotalDuration,TargetFactor_EvalCounts,TargetFactor_Response,TargetFactor_score,Total score
+Case_0,gpt-4o,"
+            Here are the intelligence about Avery Johnson with comments from trusted experts and/or Avery Johnson's recorded statement(s).
+             The individual values following the organization's Information Security Policies. The individual expressed their plan to safeguard their company's data and technological assets. The individual has the ability to safeguard themselves against cyber breaches. I prioritize protecting my employer's sensitive information by following all security guidelines. Viewing compliance with the institution's security policies as vital.
+            Here are the intelligence about Emily Carter with comments from trusted experts and/or Emily Carter's recorded statement(s).
+             The person understood the benefits of following the information security policies. The person views compliance with the institution's security policies as a mandatory requirement. A person has complete power over adhering to information security policies. The individual values following the institution's guidelines for Information Security Policies. The individual understands the consequences for violating the organization's information security policy.
+
+            ","Which of the following options best reflects Avery Johnson's or Emily Carter cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Knowledge', 'Social', 'Motivation', 'Attitude', 'Intent']
+(option b) - ['Self-efficacy', 'Motivation', 'Intent', 'Subjective norms', 'Attitude']
+(option c) - ['Attitude', 'Intent', 'Control', 'Motivation', 'Attitude']
+(option d) - ['Control', 'Attitude', 'Response Efficacy', 'Benefits', 'Intent']","(option c) - ['Attitude', 'Intent', 'Control', 'Motivation', 'Attitude']",0,83,"(option b) - ['Self-efficacy', 'Motivation', 'Intent', 'Subjective norms', 'Attitude']
+
+This option best reflects the cognitive behavioral constructs of both Avery Johnson and Emily Carter, as it encompasses their intent, motivation, self-efficacy in safeguarding information, the importance they place on following security policies (subjective norms and attitude), and their understanding of the consequences of not complying.",0,"Who is LESS compliant with information security policies? Your answer must begin with (option 
+(option a) - Avery Johnson
+(option b) - They carry the same risk level
+(option c) - Emily Carter
+(option d) - It is impossible to tell",(option b) - They carry the same risk level,0,9,(option d) - It is impossible to tell,0,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level may increase
+(option b) - security non-compliance risk level will increase
+(option c) - security non-compliance risk level will stay the same
+(option d) - It is impossible to tell",(option a) - security non-compliance risk level may increase,0,81,"(option c) - security non-compliance risk level will stay the same
+
+Based on the provided intelligence about Avery Johnson and Emily Carter, both individuals value and prioritize adhering to information security policies. They understand the importance of safeguarding sensitive information and view compliance as mandatory and vital. Given their strong commitment to following security guidelines, working closely together in the same team should not increase the security non-compliance risk level.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Attitude
+(option b) - Motivation
+(option c) - Knowledge
+(option d) - Intent",(option a) - Attitude,0,65,"(option a) - Attitude
+
+Strengthening the attitudes of both Avery Johnson and Emily Carter towards the importance of information security compliance could further enhance their dedication to following security guidelines. While they both understand and value compliance, continually reinforcing the positive attitude towards such practices can create a more ingrained and proactive approach to safeguarding information security.",1,1
+Case_1,gpt-4o,"
+            Here are the intelligence about Emily Rodriguez with comments from trusted experts and/or Emily Rodriguez's recorded statement(s).
+             The individual is willing to follow the established safety protocols set by the company. The individual plans to intentionally misuse security resources within the organization. The individual is dedicated to enforcing the company's data protection guidelines. The person highly values following the organization's security procedures. The individual disregards following the organization's Information Security Policies as irrelevant.
+            Here are the intelligence about Noah Brown with comments from trusted experts and/or Noah Brown's recorded statement(s).
+             The person takes an active role in driving the organization's growth forward. The individual is dedicated to enforcing the organization's protocols for protecting sensitive information. The individual values following the organization's security procedures. The individual is dedicated to upholding the organization's policies for protecting information. 1. A commitment to following established security protocols no matter the circumstances.
+
+            ","Which of the following options best reflects Emily Rodriguez's or Noah Brown cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Goal', 'Intent', 'Commitment', 'Goal', 'Attitude']
+(option b) - ['Goal', 'Norms', 'Threat severity', 'Intent', 'Attitude']
+(option c) - ['Goal', 'Social', 'Costs', 'Attitude', 'Goal']
+(option d) - ['Group norms', 'Goal', 'Attitude', 'Response Efficacy', 'Commitment']","(option a) - ['Goal', 'Intent', 'Commitment', 'Goal', 'Attitude']",1,64,"(option a) - ['Goal', 'Intent', 'Commitment', 'Goal', 'Attitude']
+
+This option best reflects the cognitive behavioral constructs identified in the statements about Emily Rodriguez and Noah Brown. Their goals, intents, commitments, and attitudes toward following security protocols and protecting information are consistently highlighted in the intelligence provided.",1,"Who is LESS compliant with information security policies? Your answer must begin with (option 
+(option a) - It is impossible to tell
+(option b) - Emily Rodriguez
+(option c) - They carry the same risk level
+(option d) - Noah Brown",(option b) - Emily Rodriguez,0,6,(option b) - Emily Rodriguez,1,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level will stay the same
+(option b) - security non-compliance risk level may increase
+(option c) - security non-compliance risk level will increase
+(option d) - It is impossible to tell",(option c) - security non-compliance risk level will increase,1,77,"(option b) - security non-compliance risk level may increase
+
+Given the conflicting statements regarding Emily Rodriguez's compliance with security protocols—one indicating a plan to misuse resources and disregard for information security policies—the risk level for non-compliance may increase if she works closely with Noah Brown. Despite Noah's strong commitment to security, Emily’s potential for intentional misuse could create vulnerabilities within the team.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Goal
+(option b) - Intent
+(option c) - Attitude
+(option d) - Commitment",(option a) - Goal,0,54,"(option b) - Intent
+
+To increase information security compliance, the factor of ""Intent"" should be targeted for strengthening. By addressing the specific intention behind actions, organizations can ensure that employees not only understand the importance of security protocols but also deliberately choose to follow them consistently.",0,2
+Case_2,gpt-4o,"
+            Here are the intelligence about Liam Miller with comments from trusted experts and/or Liam Miller's recorded statement(s).
+             Their thoughts are that I should not misuse my organization's information security resources. They disregard following the institution's Information Security Policies."" Embracing security technologies is key to safeguarding sensitive data. The severity of the consequences would be significant. The organization follows strict rules for using computer resources.
+            Here are the intelligence about Olivia Johnson with comments from trusted experts and/or Olivia Johnson's recorded statement(s).
+             The person recognized the benefits of adhering to the information security protocols. The individual mentioned specific protocols for using computer resources. ""If personal information were accessed, the person could suffer severe repercussions."" The individual follows security protocols in order to receive incentives. They will actively safeguard vital organizational data and technical assets.
+
+            ","Which of the following options best reflects Liam Miller's or Olivia Johnson cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Goal', 'Intent', 'Attitude', 'Benefits', 'Threat severity']
+(option b) - ['Benefits', 'Knowledge', 'Threat severity', 'Motivation', 'Intent']
+(option c) - ['Commitment', 'Motivation', 'Intent', 'Subjective norms', 'Threat severity']
+(option d) - ['Motivation', 'Control', 'Knowledge', 'Social', 'Threat severity']","(option b) - ['Benefits', 'Knowledge', 'Threat severity', 'Motivation', 'Intent']",0,21,"(option b) - ['Benefits', 'Knowledge', 'Threat severity', 'Motivation', 'Intent']",1,"Who is MORE compliant with information security policies? Your answer must begin with (option 
+(option a) - It is impossible to tell
+(option b) - They carry the same risk level
+(option c) - Olivia Johnson
+(option d) - Liam Miller",(option c) - Olivia Johnson,0,80,"(option c) - Olivia Johnson
+
+Based on the given information, Olivia Johnson appears to be more compliant with information security policies. She actively recognizes the benefits of adhering to these protocols, follows specific protocols to receive incentives, and is committed to safeguarding vital organizational data and technical assets. In contrast, Liam Miller disregards following the institution's Information Security Policies and is cautioned against misusing information security resources.",1,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level may increase
+(option b) - It is impossible to tell
+(option c) - security non-compliance risk level will increase
+(option d) - security non-compliance risk level will stay the same",(option a) - security non-compliance risk level may increase,1,90,"(option a) - security non-compliance risk level may increase
+
+Although Olivia Johnson follows security protocols and recognizes their benefits, Liam Miller disregards the institution's Information Security Policies and has demonstrated a potentially risky attitude towards information security. If these two employees work closely in the same team, there is a chance that Liam's non-compliant behavior could negatively influence the team's overall adherence to security protocols. Therefore, the risk level may increase when they work together.",1,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Response Efficacy
+(option b) - Knowledge
+(option c) - Intent
+(option d) - Threat severity",(option b) - Knowledge,0,81,"(option c) - Intent
+
+Strengthening the intent to comply with information security policies is crucial. From the intelligence provided, Liam Miller disregards the institution's Information Security Policies, while Olivia Johnson complies with them to receive incentives. By focusing on improving intent, the organization can ensure that individuals internalize the importance of adhering to security protocols, leading to a higher rate of compliance and better safeguarding of sensitive data.",0,3
+Case_3,gpt-4o,"
+            Here are the intelligence about Ethan Thompson with comments from trusted experts and/or Ethan Thompson's recorded statement(s).
+             The individual is committed to securing the organization's information through devoted effort. The person sees following the institution's Information Security Policies as a necessary obligation. The speaker values the opinions of important individuals in their organization. The individual values ethics and integrity over personal gain. The person received warnings from respected colleagues against committing information security resource misuse.
+            Here are the intelligence about Samantha Stone with comments from trusted experts and/or Samantha Stone's recorded statement(s).
+             Compliance with the information security policies would bring benefits to the individual. The individual prioritizes following the institution's Information Security Policies. The individual is seeking to follow the established security protocols set by the organization. The individual has the power to defend themselves against breaches in information security. A commitment to following organizational information security policy in all circumstances.
+
+            ","Which of the following options best reflects Ethan Thompson's or Samantha Stone cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Commitment', 'Benefits', 'Subjective norms', 'Affect', 'Subjective norms']
+(option b) - ['Group norms', 'Attitude', 'Subjective norms', 'Vulnerability', 'Belief']
+(option c) - ['Commitment', 'Attitude', 'Subjective norms', 'Belief', 'Subjective norms']
+(option d) - ['Commitment', 'Subjective norms', 'Response Efficacy', 'Threat severity', 'Subjective norms']","(option c) - ['Commitment', 'Attitude', 'Subjective norms', 'Belief', 'Subjective norms']",0,26,"(option c) - ['Commitment', 'Attitude', 'Subjective norms', 'Belief', 'Subjective norms']",1,"Who is MORE compliant with information security policies? Your answer must begin with (option 
+(option a) - They carry the same risk level
+(option b) - It is impossible to tell
+(option c) - Ethan Thompson
+(option d) - Samantha Stone",(option a) - They carry the same risk level,1,6,(option d) - Samantha Stone,0,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level will increase
+(option b) - security non-compliance risk level will stay the same
+(option c) - security non-compliance risk level may increase
+(option d) - It is impossible to tell",(option c) - security non-compliance risk level may increase,0,104,"(option b) - security non-compliance risk level will stay the same
+
+Based on the provided intelligence, both Ethan Thompson and Samantha Stone demonstrate a strong commitment to following the institution's Information Security Policies. Ethan values ethics, integrity, and adherence to security policies, and has also received warnings from respected colleagues against misusing information security resources. Samantha prioritizes following security protocols and recognizes the benefits of compliance, showing a commitment to defending against breaches. Therefore, working closely together is unlikely to increase the risk of non-compliance.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Attitude
+(option b) - Benefits
+(option c) - Commitment
+(option d) - Goal",(option a) - Attitude,0,64,"(option c) - Commitment
+
+Commitment is indicated as a strong point for both individuals, as they both show a dedication to following the institution's Information Security Policies and the ethical obligations tied to them. Strengthening commitment can further reinforce their resolve to adhere to these policies in all circumstances, thereby increasing overall information security compliance.",0,1
+Case_4,gpt-4o,"
+            Here are the intelligence about Olivia Hernandez with comments from trusted experts and/or Olivia Hernandez's recorded statement(s).
+             It comes easily to the individual to utilize cybersecurity protection software. The individual is knowledgeable about the breaches and repercussions of the company's protocols. The individual is capable of easily utilizing security software for online protection. The individual views following the institution's policies regarding information security as compulsory. My disregard for information security policies could benefit me.""
+            Here are the intelligence about Emma Smith with comments from trusted experts and/or Emma Smith's recorded statement(s).
+             The speaker believes majority of the organization supports the use of security technologies. Most employees in the person's department comply with information security policies. The person has a strong commitment to following their organization's information security policy."" Security procedures can prevent data breaches on a computer. /. The individual views following the organization's Information Security Policies as obligatory.
+
+            ","Which of the following options best reflects Olivia Hernandez's or Emma Smith cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Intent', 'Response Efficacy', 'Knowledge', 'Commitment', 'Norms']
+(option b) - ['Control', 'Attitude', 'Norms', 'Goal', 'Group norms']
+(option c) - ['Vulnerability', 'Response Efficacy', 'Group norms', 'Costs', 'Norms']
+(option d) - ['Group norms', 'Norms', 'Intent', 'Response Efficacy', 'Attitude']","(option d) - ['Group norms', 'Norms', 'Intent', 'Response Efficacy', 'Attitude']",0,352,"Based on the provided intelligence and comments:
+
+For Olivia Hernandez:
+- She is knowledgeable about cybersecurity breaches and protocols (Knowledge).
+- She finds it easy to use security software (Response Efficacy).
+- She views following information security policies as compulsory (Commitment, Norms).
+- She also mentioned a disregard for information security policies could benefit her, indicating a potential conflict with her intent and attitude (Intent).
+
+For Emma Smith:
+- She believes the majority supports the use of security technologies (Group norms, Norms).
+- She is committed to following information security policies (Commitment).
+- She acknowledges that security procedures can prevent data breaches (Response Efficacy).
+- She views following the organization's policies as obligatory (Norms).
+
+Comparing these to the options provided:
+
+Option (a) - ['Intent', 'Response Efficacy', 'Knowledge', 'Commitment', 'Norms'] seems to best reflect Olivia Hernandez's cognitive behavioral constructs as it includes her knowledge, response efficacy, commitment, norms, and her intent.
+
+Option (d) - ['Group norms', 'Norms', 'Intent', 'Response Efficacy', 'Attitude'] seems relevant but doesn't fully match up for Olivia since it focuses more on group norms and attitude which aren't as strongly emphasized in her profile.
+
+For Emma Smith, option (a) also fits well, but the emphasis on group norms and norms suggests:
+
+Option (d) - ['Group norms', 'Norms', 'Intent', 'Response Efficacy', 'Attitude'] best reflects Emma Smith's cognitive behavioral constructs as it highlights her emphasis on group norms, norms, response efficacy, and her commitment which can relate to intent.
+
+In summary:
+
+(option a): Olivia Hernandez.
+(option d): Emma Smith.",0,"Who is MORE compliant with information security policies? Your answer must begin with (option 
+(option a) - Emma Smith
+(option b) - Olivia Hernandez
+(option c) - It is impossible to tell
+(option d) - They carry the same risk level",(option a) - Emma Smith,0,75,"(option a) - Emma Smith
+
+Explanation: Emma Smith demonstrates a strong commitment to following the organization's information security policy and believes that the majority of the organization supports the use of security technologies. On the other hand, Olivia Hernandez mentions that disregarding information security policies could benefit her, suggesting a potential willingness to bypass protocols. Therefore, Emma Smith is more compliant with information security policies.",1,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - It is impossible to tell
+(option b) - security non-compliance risk level will increase
+(option c) - security non-compliance risk level will stay the same
+(option d) - security non-compliance risk level may increase",(option d) - security non-compliance risk level may increase,0,143,"(option b) - security non-compliance risk level will increase
+
+Given the information provided, Olivia Hernandez has expressed a willingness to disregard information security policies if it could benefit her. Despite her technical proficiency and understanding of the importance of cybersecurity, this attitude poses a risk of non-compliance. On the other hand, Emma Smith demonstrates a strong commitment to following information security policies and feels that the majority of the organization supports security technologies.
+
+If both employees work closely in the same team, Olivia's potential for non-compliance might negatively influence the overall security posture of the team, increasing the risk level. Emma's adherence to policies may not be sufficient to counteract Olivia's disregard if the latter chooses to act on her belief.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Intent
+(option b) - Self-efficacy
+(option c) - Benefits
+(option d) - Attitude",(option d) - Attitude,1,82,"(option b) - Self-efficacy
+
+By increasing self-efficacy, individuals like Olivia Hernandez, who might see disregarding information security policies as beneficial, can gain more confidence in their ability to follow these policies and understand their importance. This in turn can lead to better compliance. Strengthening self-efficacy can also support Emma Smith and her peers in maintaining their commitment and adherence to information security measures.",0,1
+Case_5,gpt-4o,"
+            Here are the intelligence about Emily Parker with comments from trusted experts and/or Emily Parker's recorded statement(s).
+             The individual mentioned their organization having strict rules on how to use computer resources. 1. The individual values integrity above exploiting loopholes. This person acknowledges fair treatment by their company. The majority of individuals in the company believe computer security holds no significance. The person in charge of the department likely enforces strict information security policies..
+            Here are the intelligence about Alexa Nguyen with comments from trusted experts and/or Alexa Nguyen's recorded statement(s).
+             Utilizing security measures can successfully safeguard sensitive data. The person values their personal convenience over the importance of following established security protocols. The individual possesses the necessary means and expertise to breach information security protocols. The individual is willing to abide by the company's security protocols. The person is enthusiastic about their ability to safeguard the company.
+
+            ","Which of the following options best reflects Emily Parker's or Alexa Nguyen cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Goal', 'Knowledge', 'Threat severity', 'Group norms', 'Norms']
+(option b) - ['Moral', 'Intent', 'Norms', 'Group norms', 'Benefits']
+(option c) - ['Knowledge', 'Belief', 'Moral', 'Group norms', 'Norms']
+(option d) - ['Costs', 'Belief', 'Response Efficacy', 'Knowledge', 'Norms']","(option c) - ['Knowledge', 'Belief', 'Moral', 'Group norms', 'Norms']",0,22,"(option b) - ['Moral', 'Intent', 'Norms', 'Group norms', 'Benefits']",0,"Who is LESS compliant with information security policies? Your answer must begin with (option 
+(option a) - Emily Parker
+(option b) - They carry the same risk level
+(option c) - Alexa Nguyen
+(option d) - It is impossible to tell",(option c) - Alexa Nguyen,1,6,(option c) - Alexa Nguyen,1,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level will increase
+(option b) - security non-compliance risk level may increase
+(option c) - security non-compliance risk level will stay the same
+(option d) - It is impossible to tell",(option a) - security non-compliance risk level will increase,0,101,"(option b) - security non-compliance risk level may increase
+
+While Emily Parker values integrity and follows strict information security policies, Alexa Nguyen values personal convenience over established security protocols and has both the means and expertise to breach them. If they work closely in the same team, there is a possibility that Alexa's tendencies may undermine the overall security posture, leading to an increased risk of non-compliance. However, Emily's strong integrity may provide some counterbalance, making the exact impact uncertain but potentially higher risk.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Norms
+(option b) - Response Efficacy
+(option c) - Control
+(option d) - Attitude",(option d) - Attitude,0,75,"(option d) - Attitude
+
+By targeting and strengthening attitude, especially for individuals like Alexa Nguyen who prioritizes personal convenience over following established security protocols, we can positively influence their perception and behavioral adherence to security measures. For Emily Parker, reinforcing the importance of these security measures could also solidify and affirm her commitment to integrity and proper usage, contributing to a more compliant environment.",1,2
+Case_6,gpt-4o,"
+            Here are the intelligence about Elizabeth Hernandez with comments from trusted experts and/or Elizabeth Hernandez's recorded statement(s).
+             The speaker desires to safeguard the knowledge and technical assets of their company. The person is ecstatic about their ability to safeguard the company. The person warns against breaking information security rules. The individual sees following rules as a moral obligation. The person is acknowledging their duty to follow their organization's security policies.
+            Here are the intelligence about Thomas Evans with comments from trusted experts and/or Thomas Evans's recorded statement(s).
+             The person's enthusiasm stems from being fully equipped to safeguard the company. ""Regardless of circumstances, I will follow my company's information security protocol."" The individual is enthusiastic about their ability to safeguard the business. The individual is seeking to follow the established security protocols set by the organization. The individual views compliance with institutional Information Security Policies as a mandatory requirement.
+
+            ","Which of the following options best reflects Elizabeth Hernandez's or Thomas Evans cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Affect', 'Affect', 'Motivation', 'Goal', 'Control']
+(option b) - ['Affect', 'Attitude', 'Goal', 'Commitment', 'Group norms']
+(option c) - ['Affect', 'Intent', 'Affect', 'Goal', 'Attitude']
+(option d) - ['Intent', 'Affect', 'Costs', 'Affect', 'Norms']","(option c) - ['Affect', 'Intent', 'Affect', 'Goal', 'Attitude']",0,109,"(option c) - ['Affect', 'Intent', 'Affect', 'Goal', 'Attitude']
+
+This option best reflects the cognitive behavioral constructs in the given statements for both Elizabeth Hernandez and Thomas Evans:
+- ""Affect"" appears twice as both individuals express strong positive emotions about safeguarding the company.
+- ""Intent"" aligns with their intention to follow security protocols.
+- ""Goal"" matches their aim to protect the company.
+- ""Attitude"" connects with their views on following rules and policies as either a moral obligation or mandatory requirement.",1,"Who is LESS compliant with information security policies? Your answer must begin with (option 
+(option a) - It is impossible to tell
+(option b) - Elizabeth Hernandez
+(option c) - They carry the same risk level
+(option d) - Thomas Evans",(option c) - They carry the same risk level,0,66,"(option a) - It is impossible to tell
+
+Based on the information provided, both Elizabeth Hernandez and Thomas Evans express strong enthusiasm and a sense of duty towards following their company's information security policies. Without more detailed information on their actual behavior and track record, it is impossible to definitively determine who is less compliant with information security policies.",0,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level will increase
+(option b) - security non-compliance risk level will stay the same
+(option c) - It is impossible to tell
+(option d) - security non-compliance risk level may increase",(option d) - security non-compliance risk level may increase,0,84,"(option b) - security non-compliance risk level will stay the same
+
+Both Elizabeth Hernandez and Thomas Evans demonstrate a strong commitment to following their organization's information security policies and protocols. Both see compliance with security rules as a critical and non-negotiable responsibility. Given their shared dedication to safeguarding company assets and adhering to security measures, there is no indication that their close collaboration would increase the risk of information security non-compliance.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Affect
+(option b) - Costs
+(option c) - Intent
+(option d) - Goal",(option a) - Affect,0,59,"(option c) - Intent
+
+Strengthening the intent to follow information security protocols can significantly enhance compliance as both Elizabeth Hernandez and Thomas Evans already demonstrate enthusiasm and acknowledge their duty toward safeguarding company information. Their commitment to following security rules and policies indicates that reinforcing their intent would further solidify their compliance behavior.",0,1
+Case_7,gpt-4o,"
+            Here are the intelligence about Emma Smith with comments from trusted experts and/or Emma Smith's recorded statement(s).
+             The individual values the concept of following rules in society. ""Regardless of circumstances, I will follow my company's information security protocol."" The person is acknowledging their coworkers for actively promoting information security within the organization. The individual is dedicated to ensuring the organization's information security is successful. Put effort into facilitating progress for the organization.
+            Here are the intelligence about Benjamin Williams with comments from trusted experts and/or Benjamin Williams's recorded statement(s).
+             Some believe that security technologies should be utilized by everyone in the organization."" Most people believe The person should follow the company's security procedures. The individual disregards the importance of following the institute's Information Security Policies. Not following Information Security Policies could result in potential security threats for the institution. The individual intends to exploit security resources for personal gain within their workplace.
+
+            ","Which of the following options best reflects Emma Smith's or Benjamin Williams cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Group norms', 'Norms', 'Attitude', 'Vulnerability', 'Intent']
+(option b) - ['Vulnerability', 'Control', 'Commitment', 'Attitude', 'Intent']
+(option c) - ['Self-efficacy', 'Intent', 'Response Efficacy', 'Vulnerability', 'Norms']
+(option d) - ['Group norms', 'Vulnerability', 'Goal', 'Intent', 'Costs']","(option a) - ['Group norms', 'Norms', 'Attitude', 'Vulnerability', 'Intent']",0,214,"(option b) - ['Vulnerability', 'Control', 'Commitment', 'Attitude', 'Intent']
+
+Explanation:
+- **Vulnerability**: Emma Smith acknowledges the importance of information security and potential threats it may pose.
+- **Control**: Emma is dedicated to following protocols, indicating a sense of control over her actions in relation to information security.
+- **Commitment**: Emma's dedication to ensuring the organization's information security highlights her commitment.
+- **Attitude**: Positive attitude towards company rules and acknowledging coworkers who promote information security.
+- **Intent**: Emma has clear intentions to follow protocols and support information security.
+
+Benjamin Williams:
+- **Vulnerability**: Ignoring security policies indicates a disregard for potential vulnerabilities he might expose the organization to.
+- **Control**: His intention to exploit resources demonstrates perceived control over security measures.
+- **Commitment**: Lack of commitment to following security policies.
+- **Attitude**: Negative attitude towards the institution's Information Security Policies.
+- **Intent**: Clear intent to exploit security resources for personal gain.
+",0,"Who is LESS compliant with information security policies? Your answer must begin with (option 
+(option a) - Benjamin Williams
+(option b) - They carry the same risk level
+(option c) - It is impossible to tell
+(option d) - Emma Smith",(option a) - Benjamin Williams,0,6,(option a) - Benjamin Williams,1,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level will increase
+(option b) - security non-compliance risk level may increase
+(option c) - security non-compliance risk level will stay the same
+(option d) - It is impossible to tell",(option a) - security non-compliance risk level will increase,0,90,"(option a) - security non-compliance risk level will increase
+
+Given that Benjamin Williams has a recorded history of disregarding the importance of following Information Security Policies and intends to exploit security resources for personal gain, working closely with Emma Smith, who values and actively promotes information security, could lead to conflicts that may undermine the team's overall adherence to security protocols. This misalignment between the two employees can heighten the risk of non-compliance within the team.",1,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Group norms
+(option b) - Attitude
+(option c) - Belief
+(option d) - Norms",(option b) - Attitude,1,104,"(option c) - Belief
+
+Strengthening the belief in the importance of following the organization's information security policies would likely increase information security compliance. In Emma Smith's case, she already exhibits a strong belief in the importance of following rules and promoting information security. However, Benjamin Williams shows a disregard for these policies and attempts to exploit resources for personal gain. By reinforcing the belief in the critical nature of adhering to security protocols and demonstrating the potential risks of non-compliance, the organization could improve overall adherence to information security measures.",0,2
+Case_8,gpt-4o,"
+            Here are the intelligence about Ethan Smith with comments from trusted experts and/or Ethan Smith's recorded statement(s).
+             The person recognized that following information security policies could lead to benefits for them. The individual participates in tasks that contribute to the company's development. The person is not faithful to the company. The speaker plans to intentionally violate information security protocols in their workplace. The speaker feels pressure from their bosses to follow strict security measures.
+            Here are the intelligence about Ethan Mitchell with comments from trusted experts and/or Ethan Mitchell's recorded statement(s).
+             The individual stated their organization's commitment to fair competition with rivals. A person discussing their organization's strict policies regarding appropriate computer usage. The person values the institution's Information Security Policies."" 1. Following information security policies would lead to benefits for the individual. The person knows about potential violations and penalties of the organization's policies.
+
+            ","Which of the following options best reflects Ethan Smith's or Ethan Mitchell cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Benefits', 'Social', 'Commitment', 'Goal', 'Subjective norms']
+(option b) - ['Attitude', 'Goal', 'Vulnerability', 'Benefits', 'Social']
+(option c) - ['Commitment', 'Motivation', 'Social', 'Group norms', 'Goal']
+(option d) - ['Control', 'Subjective norms', 'Social', 'Response Efficacy', 'Goal']","(option a) - ['Benefits', 'Social', 'Commitment', 'Goal', 'Subjective norms']",0,86,"(option b) - ['Attitude', 'Goal', 'Vulnerability', 'Benefits', 'Social']
+
+This option best encompasses the cognitive behavioral constructs observed in both Ethan Smith and Ethan Mitchell. Ethan Smith's recognition of benefits from following policies, his goal-oriented participation, and his vulnerable position due to the pressure he feels align with this construct. Ethan Mitchell's valuation of information security policies and understanding of benefits and potential penalties resonate similarly.",0,"Who is MORE compliant with information security policies? Your answer must begin with (option 
+(option a) - It is impossible to tell
+(option b) - Ethan Mitchell
+(option c) - They carry the same risk level
+(option d) - Ethan Smith",(option b) - Ethan Mitchell,0,6,(option b) - Ethan Mitchell,1,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level will stay the same
+(option b) - It is impossible to tell
+(option c) - security non-compliance risk level will increase
+(option d) - security non-compliance risk level may increase",(option c) - security non-compliance risk level will increase,1,109,"(option c) - security non-compliance risk level will increase
+
+Given the provided intel, Ethan Smith is not faithful to the company and plans to intentionally violate information security protocols, indicating a high risk of non-compliance. On the other hand, Ethan Mitchell values the organization's Information Security Policies and acknowledges the consequences of violations. However, if these two individuals work closely together, the negative influence and planned violations by Ethan Smith could potentially impact the overall compliance and security culture in the team, leading to an increase in the security non-compliance risk level.",1,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Benefits
+(option b) - Commitment
+(option c) - Social
+(option d) - Goal",(option a) - Benefits,0,67,"(option b) - Commitment
+
+Strengthening the commitment factor can help increase information security compliance. Ethan Smith recognizes information security policies could be beneficial but plans to violate them, indicating a lack of commitment despite understanding the benefits and penalties. Enhancing commitment to the organization's values and information security policies could help align actions with the recognized benefits and expectations.",1,3
+Case_9,gpt-4o,"
+            Here are the intelligence about Henry Bennett with comments from trusted experts and/or Henry Bennett's recorded statement(s).
+             The individual is capable of easily utilizing cybersecurity safeguarding technology with relative ease. The individual lacks knowledge of protocols needed for their job responsibilities. The person recognized that following information security policies would bring benefits. They are dedicated to promoting the organization's progress."" The individual values following policies in all situations.
+            Here are the intelligence about Emily Rodriguez with comments from trusted experts and/or Emily Rodriguez's recorded statement(s).
+             They desire to adhere to the protocols set by the company. ""The person is dedicated to following the information security policy, regardless of circumstances."" The individual views compliance with the institution's security policies as mandatory."" The individual is adept at operating cyber defense programs with minimal difficulty. A person follows rules and protocols to receive benefits.
+
+            ","Which of the following options best reflects Henry Bennett's or Emily Rodriguez cognitive behavioral constructs. Your answer must begin with (option 
+(option a) - ['Benefits', 'Intent', 'Belief', 'Moral', 'Social']
+(option b) - ['Self-efficacy', 'Knowledge', 'Benefits', 'Social', 'Belief']
+(option c) - ['Knowledge', 'Self-efficacy', 'Group norms', 'Social', 'Norms']
+(option d) - ['Knowledge', 'Social', 'Costs', 'Motivation', 'Self-efficacy']","(option b) - ['Self-efficacy', 'Knowledge', 'Benefits', 'Social', 'Belief']",0,92,"(option b) - ['Self-efficacy', 'Knowledge', 'Benefits', 'Social', 'Belief']
+
+Both Henry Bennett and Emily Rodriguez's cognitive behavioral constructs reflect aspects from this option. They both demonstrate self-efficacy (ability to use cybersecurity technology easily), acknowledge benefits (recognizing the advantages of following security policies), and hold beliefs regarding the importance of compliance. Socially, they are dedicated to promoting and aligning with the organization's progress and protocols.",1,"Who is MORE compliant with information security policies? Your answer must begin with (option 
+(option a) - They carry the same risk level
+(option b) - Henry Bennett
+(option c) - It is impossible to tell
+(option d) - Emily Rodriguez",(option d) - Emily Rodriguez,0,10,(option a) - They carry the same risk level,0,"Will information security non-compliance risk level increase if these employees work closely in the same team? Your answer must begin with (option 
+(option a) - security non-compliance risk level may increase
+(option b) - security non-compliance risk level will stay the same
+(option c) - security non-compliance risk level will increase
+(option d) - It is impossible to tell",(option a) - security non-compliance risk level may increase,0,103,"(option b) - security non-compliance risk level will stay the same
+
+Both Henry Bennett and Emily Rodriguez are described as individuals who value and adhere to information security policies, although they have different strengths. Henry Bennett might need more knowledge about specific protocols, whereas Emily Rodriguez is adept at following rules and protocols for benefits. Their combined dedication to security policies suggests that their working together will not increase the non-compliance risk level. Instead, their commitment should maintain or potentially enhance the adherence to information security protocols within their team.",0,"To increase information security compliance, which cognitive behavioral factor should be targetted for strengthening? Your answer must begin with (option 
+(option a) - Goal
+(option b) - Knowledge
+(option c) - Self-efficacy
+(option d) - Motivation",(option c) - Self-efficacy,1,72,"(option b) - Knowledge
+
+Both Henry Bennett and Emily Rodriguez demonstrate strong motivation and commitment to adhering to information security policies. They also display the capability to utilize cybersecurity technologies effectively. However, Henry Bennett lacks the knowledge of protocols needed for job responsibilities. Thus, improving knowledge would be the most beneficial cognitive behavioral factor to target in this case to increase information security compliance.",0,1

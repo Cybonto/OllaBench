@@ -1,0 +1,21 @@
+digraph G {
+	overlap=scale splines=true
+	edge [fontsize=12]
+	node [fillcolor="#cae6df" shape=circle style=filled]
+	TR [label=TR]
+	WHO [label=WHO]
+	TF [label=TF]
+	WCP [label=WCP]
+	node [shape=box style=""]
+	TargetFactor_score [label=TargetFactor_score]
+	TeamRisk_score [label=TeamRisk_score]
+	WCP_score [label=WCP_score]
+	WHO_score [label=WHO_score]
+	WCP -> TR [label="-0.023\np-val: 0.98"]
+	WHO -> TR [label="-0.126\np-val: 0.00"]
+	WCP -> TF [label="0.035\np-val: 0.98"]
+	WCP -> WCP_score [label=1.000]
+	WHO -> WHO_score [label=1.000]
+	TR -> TeamRisk_score [label=1.000]
+	TF -> TargetFactor_score [label=1.000]
+}
