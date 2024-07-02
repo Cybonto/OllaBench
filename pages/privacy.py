@@ -1,5 +1,15 @@
 import streamlit as st
 
+from OllaBench_gui_menu import menu_with_redirect, show_header
+st.set_page_config(
+    page_title="Understanding OllaBench",
+    initial_sidebar_state="expanded"
+)
+
+# Main Streamlit app starts here
+show_header()
+menu_with_redirect()
+
 markdown_text="""
 # PRIVACY POLICY
 
@@ -8,12 +18,12 @@ Last updated July 02, 2024
 This privacy notice for OllaBench ("we," "us," or "our"), describes how and why we might collect, store, use, and/or share (
 ("Services"), such as when you:
 
-```
+*
 Visit our website at ollabench.streamlit.app, or any website of ours that links to this privacy notice
-```
-```
+*
+*
 Engage with us in other related ways, including any sales, marketing, or events
-```
+*
 Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policie
 our Services. If you still have any questions or concerns, please contact us at ollabench@googlegroups.com.
 
@@ -89,18 +99,18 @@ when you participate in activities on the Services, or otherwise when you contac
 Personal Information Provided by You. The personal information that we collect depends on the context of your interactions with us and the Se
 products and features you use. The personal information we collect may include the following:
 
-```
+*
 names
-```
-```
+*
+*
 email addresses
-```
-```
+*
+*
 usernames
-```
-```
+*
+*
 contact preferences
-```
+*
 Sensitive Information.We do not process sensitive information.
 
 All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal info
@@ -113,19 +123,19 @@ process your information for other purposes with your consent.
 We process your personal information for a variety of reasons, depending on how you interact with our Services, including:
 
 
-```
+*
 To facilitate account creation and authentication and otherwise manage user accounts. We may process your information so you can
 well as keep your account in working order.
-```
-```
+*
+*
 To request feedback. We may process your information when necessary to request feedback and to contact you about your use of our Se
-```
-```
+*
+*
 To protect our Services. We may process your information as part of our efforts to keep our Services safe and secure, including fraud mon
-```
-```
+*
+*
 To save or protect an individual's vital interest. We may process your information when necessary to save or protect an individual’s vita
-```
+*
 ## 3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?
 
 In Short: We only process your personal information when we believe it is necessary and we have a valid legal reason (i.e.
@@ -136,28 +146,28 @@ If you are located in the EU or UK, this section applies to you.
 The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your per
 rely on the following legal bases to process your personal information:
 
-```
+*
 Consent. We may process your information if you have given us permission (i.e., consent) to use your personal information for a specific p
 consent at any time. Learn more about withdrawing your consent.
-```
-```
+*
+*
 Legitimate Interests. We may process your information when we believe it is reasonably necessary to achieve our legitimate business inte
 outweigh your interests and fundamental rights and freedoms. For example, we may process your personal information for some of the purp
-```
-```
+*
+*
 Diagnose problems and/or prevent fraudulent activities
-```
-```
+*
+*
 Understand how our users use our products and services so we can improve user experience
-```
-```
+*
+*
 Legal Obligations. We may process your information where we believe it is necessary for compliance with our legal obligations, such as to
 body or regulatory agency, exercise or defend our legal rights, or disclose your information as evidence in litigation in which we are involved
-```
-```
+*
+*
 Vital Interests. We may process your information where we believe it is necessary to protect your vital interests or the vital interests of a th
 potential threats to the safety of any person.
-```
+*
 If you are located in Canada, this section applies to you.
 
 We may process your information if you have given us specific permission (i.e., express consent) to use your personal information for a specific p
@@ -165,52 +175,52 @@ permission can be inferred (i.e., implied consent). You can withdraw your consen
 
 In some exceptional cases, we may be legally permitted under applicable law to process your information without your consent, including, for exam
 
-```
+*
 If collection is clearly in the interests of an individual and consent cannot be obtained in a timely way
-```
-```
+*
+*
 For investigations and fraud detection and prevention
-```
-```
+*
+*
 For business transactions provided certain conditions are met
-```
-```
+*
+*
 If it is contained in a witness statement and the collection is necessary to assess, process, or settle an insurance claim
-```
-```
+*
+*
 For identifying injured, ill, or deceased persons and communicating with next of kin
-```
-```
+*
+*
 If we have reasonable grounds to believe an individual has been, is, or may be victim of financial abuse
-```
+*
 
-```
+*
 If it is reasonable to expect collection and use with consent would compromise the availability or the accuracy of the information and the col
 related to investigating a breach of an agreement or a contravention of the laws of Canada or a province
-```
-```
+*
+*
 If disclosure is required to comply with a subpoena, warrant, court order, or rules of the court relating to the production of records
-```
-```
+*
+*
 If it was produced by an individual in the course of their employment, business, or profession and the collection is consistent with the purpo
 produced
-```
-```
+*
+*
 If the collection is solely for journalistic, artistic, or literary purposes
-```
-```
+*
+*
 If the information is publicly available and is specified by the regulations
-```
+*
 ## 4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
 
 In Short: We may share information in specific situations described in this section and/or with the following third parties.
 
 We may need to share your personal information in the following situations:
 
-```
+*
 Business Transfers. We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company
 or a portion of our business to another company.
-```
+*
 ## 5. HOW LONG DO WE KEEP YOUR INFORMATION?
 
 In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law
@@ -273,9 +283,9 @@ information conducted in reliance on lawful processing grounds other than consen
 
 If you would at any time like to review or change the information in your account or terminate your account, you can:
 
-```
+*
 Log in to your account settings and update your user account.
-```
+*
 Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we m
 to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.
 
@@ -304,83 +314,83 @@ be limited in some circumstances by applicable law. More information is provided
 
 We have collected the following categories of personal information in the past twelve (12) months:
 
-```
+*
 Category Examples
-```
-```
+*
+*
 A. Identifiers
-```
-```
+*
+*
 Contact details, such as real name, alias, postal address, telephone or mobile cont
 number, unique personal identifier, online identifier, Internet Protocol address, ema
 and account name
-```
-```
+*
+*
 B. Personal information as defined in the California
 Customer Records statute
-```
-```
+*
+*
 Name, contact information, education, employment, employment history, and financ
 information
-```
-```
+*
+*
 C. Protected classification characteristics under state or
 federal law
-```
-```
+*
+*
 Gender, age, date of birth, race and ethnicity, national origin, marital status, and oth
 demographic data
-```
-```
+*
+*
 D. Commercial information Transaction information, purchase history, financial details, and payment informatio
-```
-```
+*
+*
 E. Biometric information Fingerprints and voiceprints
-```
-```
+*
+*
 F. Internet or other similar network activity
-```
-```
+*
+*
 Browsing history, search history, online behavior, interest data, and interactions wit
 other websites, applications, systems, and advertisements
-```
-```
+*
+*
 G. Geolocation data Device location
-```
-```
+*
+*
 H. Audio, electronic, sensory, or similar information Images and audio, video or call recordings created in connection with our business
-```
-```
+*
+*
 I. Professional or employment-related information Business contact details in order to provide you our Services at a business level or
 work history, and professional qualifications if you apply for a job with us
-```
-```
+*
+*
 J. Education Information Student records and directory information
-```
-```
+*
+*
 K. Inferences drawn from collected personal information Inferences drawn from any of the collected personal information listed above to cre
 profile or summary about, for example, an individual’s preferences and characterist
-```
+*
 
-```
+*
 L. Sensitive personal Information
-```
+*
 We may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by p
 
-```
+*
 Receiving help through our customer support channels;
-```
-```
+*
+*
 Participation in customer surveys or contests; and
-```
-```
+*
+*
 Facilitation in the delivery of our Services and to respond to your inquiries.
-```
+*
 We will use and retain the collected personal information as needed to provide the Services or for:
 
-```
+*
 Category H - As long as the user has an account with us
-```
+*
 ### Sources of Personal Information
 
 Learn more about the sources of personal information we collect in "WHAT INFORMATION DO WE COLLECT?"
@@ -405,44 +415,44 @@ personal information in the future belonging to website visitors, users, and oth
 You have rights under certain US state data protection laws. However, these rights are not absolute, and in certain cases, we may decline your re
 rights include:
 
-```
+*
 Right to know whether or not we are processing your personal data
-```
-```
+*
+*
 Right to access your personal data
-```
-```
+*
+*
 Right to correct inaccuracies in your personal data
-```
-```
+*
+*
 Right to request the deletion of your personal data
-```
-```
+*
+*
 Right to obtain a copy of the personal data you previously shared with us
-```
-```
+*
+*
 Right to non-discrimination for exercising your rights
-```
+*
 
-```
+*
 Right to opt out of the processing of your personal data if it is used for targeted advertising (or sharing as defined under California’s privac
 profiling in furtherance of decisions that produce legal or similarly significant effects ("profiling")
-```
+*
 Depending upon the state where you live, you may also have the following rights:
 
-```
+*
 Right to obtain a list of the categories of third parties to which we have disclosed personal data (as permitted by applicable law, including
-```
-```
+*
+*
 Right to obtain a list of specific third parties to which we have disclosed personal data (as permitted by applicable law, including Oregon’s p
-```
-```
+*
+*
 Right to limit use and disclosure of sensitive personal data (as permitted by applicable law, including California’s privacy law)
-```
-```
+*
+*
 Right to opt out of the collection of sensitive data and personal data collected through the operation of a voice or facial recognition feature (
 including Florida’s privacy law)
-```
+*
 ### How to Exercise Your Rights
 
 To exercise these rights, you can contact us by visiting ollabench.streamlit.app, by emailing us at ollabench@googlegroups.com
