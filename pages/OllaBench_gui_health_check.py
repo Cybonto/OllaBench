@@ -258,8 +258,48 @@ def check_llm_model (a_list) -> bool:
             return False
     return True
 
+def check_password():
+    """Returns `True` if the user had a correct password."""
+
+    def login_form():
+        """Form with widgets to collect user information"""
+        with st.form("Credentials"):
+            st.text_input("Username", key="username")
+            st.text_input("Password", type="password", key="password")
+            st.form_submit_button("Log in", on_click=password_entered)
+            st.write('Demo username is "user" and password is "userpassword"')
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if st.session_state.username in st.secrets[
+            "passwords"
+        ] and hmac.compare_digest(
+            st.session_state.password,
+            st.secrets.passwords[st.session_state.username],
+        ):
+            st.session_state.password_correct = True
+            # get authenticated user role to session state
+            if st.session_state.username in st.secrets["roles"]:
+                st.session_state.role = st.secrets.roles[st.session_state.username]
+            del st.session_state.password  # Don't store the username or password.
+            #del st.session_state["username"]
+        else:
+            st.session_state.password_correct = False
+
+    # Return True if the username + password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # Show inputs for username + password.
+    login_form()
+    if "password_correct" in st.session_state and st.session_state.password_correct == False:
+        st.error("😕 Unknown user or incorrect password")
+    return False
+
 # Main Streamlit app starts here
 show_header()
+if not check_password():
+    st.stop()
 menu_with_redirect()
 
 # Verify the user's role

@@ -27,11 +27,22 @@
 - [Installation](#installation)
 
 ## Overview
-The grand challenge that most CEO's care about is maintaining the right level of cybersecurity at a minimum cost as companies are not able to reduce cybersecurity risks despite their increased cybersecurity investments [[1]](https://www.qbusiness.pl/uploads/Raporty/globalrisk2021.pdf). Fortunately, the problem can be explained via interdependent cybersecurity (IC) [[2]](https://www.nber.org/system/files/working_papers/w8871/w8871.pdf) as follows. First, optimizing cybersecurity investments in existing large interdependent systems is already a well-known non-convex difficult problem that is still yearning for new solutions. Second, smaller systems are growing in complexity and interdependence. Last, new low frequency, near simultaneous, macro-scale risks such as global pandemics, financial shocks, geopolitical conflicts have compound effects on cybersecurity.
 
-Human factors account for half of the long-lasting challenges in IC as identified by Kianpour et al. [[3]](https://www.mdpi.com/2071-1050/13/24/13677), and Laszka et al. [[4]](http://real.mtak.hu/21924/1/Buttyan4.pdf). Unfortunately, human-centric research within the context of IC is under-explored while research on general IC has unrealistic assumptions about human factors. Fortunately, the dawn of Large Language Models (LLMs) promise a much efficient way to research and develop solutions to problems across domains. In cybersecurity, the Zero-trust principles require the evaluation, validation, and continuous monitoring and LLMs are no exception.
+Introduction to Interdependent Cybersecurity
 
-Therefore, OllaBench was born to help both researchers and application developers conveniently evaluate their LLM models within the context of cybersecurity compliance or non-compliance behaviors.
+Interdependent cybersecurity addresses the complexities and interconnectedness of various systems, emphasizing the need for collaborative and holistic approaches to mitigate risks. This field focuses on how different components, from technology to human factors, influence each other, creating a web of dependencies that must be managed to ensure robust security.
+
+Background and Rationale
+
+Despite significant investments in cybersecurity, many organizations struggle to effectively manage cybersecurity risks due to the increasing complexity and interdependence of their systems. Notably, human factors account for half of the long-lasting challenges in interdependent cybersecurity. Agent-Based Modeling powered by Large Language Models emerges as a promising solution as it is excellent at capturing individual characteristics, allowing the micro-level agent behaviors to collectively generate emergent macro-level structures. Evaluating LLMs in this context is crucial for legal compliance and effective application development. However, traditional evaluation frameworks for large language models often neglect the human factor and cognitive computing capabilities essential for interdependent cybersecurity. The paper introduces OllaBench, a novel evaluation framework designed to fill this gap by assessing LLMs on their ability to reason about human-centric interdependent cybersecurity scenarios, thereby enhancing their application in interdependent cybersecurity threat modeling and risk management.
+
+Main Conclusions
+
+Here we show that OllaBench effectively evaluates the accuracy, wastefulness, and consistency of LLMs in answering scenario-based information security compliance/non-compliance questions. The results indicate that while commercial LLMs perform best overall, smaller open-weight models also show promising capabilities. The most accurate models are not the most efficient models in terms of tokens spent in wrong answers which unecessarily increases the cost of adopting these models. Finally, the best performing models are not only accurate but also consistent in the way they answer questions.
+
+Context and Impact
+
+The findings from OllaBench highlight the opportunities and the importance of fine-tuning existing large language models to address human factors in interdependent cybersecurity. Providing a comprehensive tool for assessing LLM performance in human-centric, complex, interdependent cybersecurity scenarios, this work advances the field by closing the gaps of evaluating large language models in deeply complex interdisciplinary areas such as human-centrict interdependent cybersecurity threat modeling and risk management. The findings also contribute to the development of more reliable and effective cybersecurity systems, ultimately enhancing organizational resilience against evolving cyber threats.
 
 
 > :exclamation:**IMPORTANT**:exclamation:\
