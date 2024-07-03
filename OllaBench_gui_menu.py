@@ -30,6 +30,7 @@ def authenticated_menu():
             disabled=st.session_state.role != "admin",
         )
         st.sidebar.page_link("pages/privacy.py", label="Privacy Policy")
+        st.sidebar.page_link("pages/tos.py", label="Terms of Service")
         if st.sidebar.button("Logout"):
             logout()
         
@@ -39,6 +40,7 @@ def unauthenticated_menu():
     # Show a navigation menu for unauthenticated users
     st.sidebar.page_link("pages/OllaBench_gui_about.py", label=":blush: Understanding OllaBench")
     st.sidebar.page_link("pages/privacy.py", label="Privacy Policy")
+    st.sidebar.page_link("pages/tos.py", label="Terms of Service")
     st.sidebar.page_link("OllaBench1_gui.py", label="Log in")
 
 
